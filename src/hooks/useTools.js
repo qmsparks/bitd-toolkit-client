@@ -6,8 +6,8 @@ function useTools(tooltype) {
 
     function fetchTool(tool) {
         ToolModel.generate(tool).then(data => {
-            setTool(data.tool);
-            console.log(data.tool);
+            setTool(data.tool.components);
+            console.log(data.tool.components);
         })
     }
     

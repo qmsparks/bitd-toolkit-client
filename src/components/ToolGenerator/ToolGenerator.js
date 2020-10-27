@@ -13,13 +13,10 @@ const ToolGenerator = props => {
     )
 
     function parseToolData(tool) {
-        for (const [key, value] of Object.entries(tool)) {
-            return (
-                <div>
-                    <ToolData type={key} data={value} />
-                </div>
-            )
-        }
+        console.log(tool);
+        return tool.map(component => {
+            return <ToolData key={component[0]._id} component={component[0]} />
+        })
     }
 
     return (
