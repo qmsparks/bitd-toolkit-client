@@ -9,13 +9,15 @@ const ToolGenerator = props => {
         function() {
             setTool(null);
         },
-        [props.slug]
+        [props.slug, setTool]
     )
 
     function parseToolData(tool) {
         console.log(tool);
-        return tool.map(component => {
-            return <ToolData key={component[0]._id} component={component[0]} />
+        return tool.map(componentType => {
+            return componentType.map(component => {
+                return <ToolData key={component._id} component={component} />
+            })
         })
     }
 

@@ -7,7 +7,6 @@ function useTools(tooltype) {
     function fetchTool(tool) {
         ToolModel.generate(tool).then(data => {
             setTool(data.tool.components);
-            console.log(data.tool.components);
         })
     }
     
