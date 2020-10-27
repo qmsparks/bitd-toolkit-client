@@ -1,5 +1,6 @@
 import {useEffect} from 'react';
 import useTools from '../../hooks/useTools';
+import ToolData from '../../components/ToolGenerator/ToolData';
 
 const ToolGenerator = props => {
     const [tool, fetchTool, setTool] = useTools();
@@ -13,7 +14,11 @@ const ToolGenerator = props => {
 
     function parseToolData(tool) {
         for (const [key, value] of Object.entries(tool)) {
-            return `${key}: ${value[0].name}`;
+            return (
+                <div>
+                    <ToolData type={key} data={value} />
+                </div>
+            )
         }
     }
 
