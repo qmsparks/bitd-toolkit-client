@@ -1,5 +1,4 @@
 
-import Home from './pages/Home';
 import Sidebar from './components/Sidebar/Sidebar';
 import Routes from './config/Routes';
 
