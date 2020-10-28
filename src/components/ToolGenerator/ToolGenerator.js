@@ -1,6 +1,7 @@
 import {useEffect} from 'react';
 import useTools from '../../hooks/useTools';
-import ToolData from '../../components/ToolGenerator/ToolData';
+import ToolData from './ToolData';
+import ToolDefaults from './ToolDefaults'
 
 const ToolGenerator = props => {
     const [tool, fetchTool, setTool, details, fetchDetails] = useTools();
@@ -8,21 +9,26 @@ const ToolGenerator = props => {
     useEffect(
         function() {
             setTool(null);
+            fetchDetails(props.slug);
         },
-        [props.slug, setTool]
+        [props.slug]
     )
 
-    function parseToolData(tool) {
-        console.log(tool);
-        return tool.map(componentType => {
+
+    function parseToolData(generatedTool) {
+        return generatedTool.map(componentType => {
             return componentType.map(component => {
                 return <ToolData key={component._id} component={component} />
             })
         })
     }
 
-    function showToolDefaults(tool) {
-        // NOTE going to use the fetchDetails method from the useTools hook
+    function showToolDefaults(conditions) {
+        const arr = Object.entries(conditions);
+        return arr.map(config => {
+            return <ToolDefaults name={config[0]} num={config[1]} />
+        })
+        
     }
 
     return (
@@ -32,8 +38,7 @@ const ToolGenerator = props => {
             {
                 tool ?
                 parseToolData(tool) :
-                <p>Some information about the tooltype you're gonna get.</p>
-
+                showToolDefaults(details)
             }
             <button onClick={e => fetchTool(props.slug)}>Get Random {props.type}</button>
         </div>

@@ -8,9 +8,7 @@ class ToolModel {
     }
 
     static details = tool => {
-        return fetch(`${URL}/details/${tool}`).then(response => {
-            response.json();
-        })
+        return fetch(`${URL}/details/${tool}`).then(response => response.json());
     }
 
 }
