@@ -1,11 +1,13 @@
 import {useEffect} from 'react';
 import useTools from '../../hooks/useTools';
+import useComponents from '../../hooks/useComponents';
 
 import ToolData from './ToolData';
 import ToolDefaults from './ToolDefaults'
 
 const ToolGenerator = props => {
     const [tool, fetchTool, setTool, details, fetchDetails] = useTools();
+    const [component, fetchComponent, setComponent] = useComponents();
     
 
     useEffect(
@@ -16,11 +18,45 @@ const ToolGenerator = props => {
         // eslint-disable-next-line
         [props.slug]
     )
+    
+    useEffect(
+        function() {
+            console.log('useEffect because tool changed');
+            setComponent(null);
+        },
+        // eslint-disable-next-line
+        [tool]
+    )
+
+    function updateTool(index, tooltype, category) {
+        const newTool = tool;
+        fetchComponent(tooltype, category);
+        if(component) {
+            newTool[index] = component;
+            setTool(newTool);
+        } else {
+            return (
+                <h4>Loading...</h4>
+            )
+        }
+    }
 
     function isolateComponents(tool) {
-        return tool.map(component => {
-            return <ToolData component={component} toolslug={props.slug}/>
-        })
+        if(tool) {
+            return tool.map((component, index) => {
+                return <ToolData 
+                key={component._id} 
+                component={component}
+                index={index}
+                toolslug={props.slug}
+                newComponent={updateTool}
+                />
+            })
+        } else {
+            return (
+                <h4>Loading...</h4>
+            )
+        }
     }
 
     function showToolDefaults(conditions) {

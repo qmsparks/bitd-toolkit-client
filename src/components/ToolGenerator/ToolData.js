@@ -1,29 +1,22 @@
-import { useEffect } from 'react';
-import useComponents from '../../hooks/useComponents';
+// import { useEffect } from 'react';
+// import useComponents from '../../hooks/useComponents';
 
 const ToolData = props => {
-    const [component, fetchComponent, setComponent] = useComponents();
 
-    useEffect(
-        function() {
-            setComponent(props.component);
-        },
-        // eslint-disable-next-line
-        [props.component]
-    )
-    
-    return(
+    function handleUpdate() {
+        props.newComponent(props.index, props.toolslug, props.component.category)
+    }
+
+    return (
         <>
-        {
-            component ?
-            <><p>{component.name}</p>
-            <button onClick={e => fetchComponent(props.toolslug, component.category)}>Reroll</button> </>:
-            <h4>Loading...</h4>
-
-        }
-        
+        <p>
+            {props.component.name}
+        </p>
+        <button 
+        onClick={e => handleUpdate()}>Reroll</button>
         </>
     )
+
 }
 
 
