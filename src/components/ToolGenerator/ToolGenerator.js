@@ -1,10 +1,12 @@
 import {useEffect} from 'react';
 import useTools from '../../hooks/useTools';
+
 import ToolData from './ToolData';
 import ToolDefaults from './ToolDefaults'
 
 const ToolGenerator = props => {
     const [tool, fetchTool, setTool, details, fetchDetails] = useTools();
+    
 
     useEffect(
         function() {
@@ -15,19 +17,16 @@ const ToolGenerator = props => {
         [props.slug]
     )
 
-
-    function parseToolData(generatedTool) {
-        return generatedTool.map(componentType => {
-            return componentType.map(component => {
-                return <ToolData key={component._id} component={component} />
-            })
+    function isolateComponents(tool) {
+        return tool.map(component => {
+            return <ToolData component={component} toolslug={props.slug}/>
         })
     }
 
     function showToolDefaults(conditions) {
         // NOTE console was getting grumpy about not having unique keys on these children. Temporary fix with Math.random() but that very much feels like a stopgap
-
         if(conditions) {
+            // NOTE there...there has to be an object equivalent for array.map, right? I shouldn't have to turn this object into an array of arrays.
             const arr = Object.entries(conditions);
             return arr.map(config => {
                 return <ToolDefaults key={Math.random()} name={config[0]} num={config[1]} />
@@ -37,21 +36,17 @@ const ToolGenerator = props => {
                 <h4>Loading...</h4>
             )
         }
-
     }
 
     return (
         <div>
             <h3>{props.type}</h3>
-
             {
                 tool ?
-                parseToolData(tool) :
+                isolateComponents(tool):
                 showToolDefaults(details)
                 
             }
-
-
             <button onClick={e => fetchTool(props.slug)}>Get Random {props.type}</button>
         </div>
     )
