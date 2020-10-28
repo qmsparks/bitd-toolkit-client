@@ -7,7 +7,6 @@ function useComponents() {
     function fetchComponent(tool, category) {
         ComponentModel.random(tool, category).then(data => {
             setComponent(data.component[0]);
-            console.log(data.component[0]);
         })
     }
 

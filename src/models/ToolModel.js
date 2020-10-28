@@ -11,6 +11,16 @@ class ToolModel {
         return fetch(`${URL}/details/${tool}`).then(response => response.json());
     }
 
+    static save = (toolData) => {
+        return fetch(URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(toolData),
+        }).then(response => response.json());
+    }
+
 }
 
 export default ToolModel;

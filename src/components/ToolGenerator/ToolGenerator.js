@@ -26,7 +26,7 @@ const ToolGenerator = props => {
     function showToolDefaults(conditions) {
         // NOTE console was getting grumpy about not having unique keys on these children. Temporary fix with Math.random() but that very much feels like a stopgap
         if(conditions) {
-            // NOTE there...there has to be an object equivalent for array.map, right? I shouldn't have to turn this object into an array of arrays.
+            //  FIXME going to adjust the backend to return an array of objects, so I can skip the Object.entries step
             const arr = Object.entries(conditions);
             return arr.map(config => {
                 return <ToolDefaults key={Math.random()} name={config[0]} num={config[1]} />
