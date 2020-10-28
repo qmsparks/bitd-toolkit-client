@@ -3,7 +3,7 @@ import useTools from '../../hooks/useTools';
 import ToolData from '../../components/ToolGenerator/ToolData';
 
 const ToolGenerator = props => {
-    const [tool, fetchTool, setTool] = useTools();
+    const [tool, fetchTool, setTool, details, fetchDetails] = useTools();
 
     useEffect(
         function() {
@@ -19,6 +19,10 @@ const ToolGenerator = props => {
                 return <ToolData key={component._id} component={component} />
             })
         })
+    }
+
+    function showToolDefaults(tool) {
+        // NOTE going to use the fetchDetails method from the useTools hook
     }
 
     return (

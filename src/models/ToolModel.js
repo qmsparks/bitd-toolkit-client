@@ -7,6 +7,12 @@ class ToolModel {
         return fetch(`${URL}/generate/${tool}`).then(response => response.json());
     }
 
+    static details = tool => {
+        return fetch(`${URL}/details/${tool}`).then(response => {
+            response.json();
+        })
+    }
+
 }
 
 export default ToolModel;
