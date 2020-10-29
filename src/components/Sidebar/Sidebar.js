@@ -15,9 +15,11 @@ const Sidebar = props => {
                 setUser(response.data);
             })
         }
-    }, [setUser]);
+    }, 
+    // eslint-disable-next-line
+    []);
 
-    const logout = () => {
+    function logout() {
         setUser(null);
         localStorage.clear();
     }
@@ -26,6 +28,11 @@ const Sidebar = props => {
         <aside>
             <div className="links">
                 <ul>
+                    {user &&
+                    <li>
+                        Hello, {user.username}
+                    </li>
+                    }
                     <li>
                         <NavLink to='/'>
                             Home
@@ -63,10 +70,6 @@ const Sidebar = props => {
                             </>
                         )
                     }
-                    
-                    
-                    
-                    
                 </ul>
             </div>
         </aside>
