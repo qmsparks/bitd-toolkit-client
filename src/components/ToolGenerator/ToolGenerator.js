@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import useTools from '../../hooks/useTools';
 import useComponents from '../../hooks/useComponents';
 
@@ -8,6 +8,7 @@ import ToolDefaults from './ToolDefaults'
 const ToolGenerator = props => {
     const [tool, fetchTool, setTool, details, fetchDetails] = useTools();
     const [component, fetchComponent, setComponent] = useComponents();
+    const [index, setIndex] = useState(null);
     
 
     useEffect(
@@ -21,49 +22,41 @@ const ToolGenerator = props => {
     
     useEffect(
         function() {
-            console.log('useEffect because tool changed');
-            setComponent(null);
+            if(component) {
+                return updateTool();
+            }
         },
         // eslint-disable-next-line
-        [tool]
+        [component]
     )
 
-    function updateTool(index, tooltype, category) {
-        const newTool = tool;
+    function updateComponent(index, tooltype, category) {
+        setIndex(index);
         fetchComponent(tooltype, category);
-        if(component) {
-            newTool[index] = component;
-            setTool(newTool);
-        } else {
-            return (
-                <h4>Loading...</h4>
-            )
-        }
     }
 
-    function isolateComponents(tool) {
-        if(tool) {
-            return tool.map((component, index) => {
-                return <ToolData 
-                key={component._id} 
-                component={component}
-                index={index}
-                toolslug={props.slug}
-                newComponent={updateTool}
-                />
-            })
-        } else {
-            return (
-                <h4>Loading...</h4>
-            )
-        }
+    function updateTool() {
+        const newTool = tool;
+        newTool[index] = component;
+        setComponent(null);
+        return setTool(newTool);
     }
 
-    function showToolDefaults(conditions) {
-        // NOTE console was getting grumpy about not having unique keys on these children. Temporary fix with Math.random() but that very much feels like a stopgap
-        if(conditions) {
-            //  FIXME going to adjust the backend to return an array of objects, so I can skip the Object.entries step
-            const arr = Object.entries(conditions);
+    function isolateComponents() {
+        return tool.map((component, index) => {
+            return <ToolData 
+            key={component._id} 
+            component={component}
+            index={index}
+            toolslug={props.slug}
+            newComponent={updateComponent}
+            />
+        })
+    }
+
+    function showToolDefaults() {
+        if(details) {
+            const arr = Object.entries(details);
             return arr.map(config => {
                 return <ToolDefaults key={Math.random()} name={config[0]} num={config[1]} />
             })
@@ -77,12 +70,8 @@ const ToolGenerator = props => {
     return (
         <div>
             <h3>{props.type}</h3>
-            {
-                tool ?
-                isolateComponents(tool):
-                showToolDefaults(details)
-                
-            }
+            {tool && isolateComponents()}
+            {!tool && showToolDefaults()}
             <button onClick={e => fetchTool(props.slug)}>Get Random {props.type}</button>
         </div>
     )

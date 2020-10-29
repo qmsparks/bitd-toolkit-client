@@ -1,6 +1,3 @@
-// import { useEffect } from 'react';
-// import useComponents from '../../hooks/useComponents';
-
 const ToolData = props => {
 
     function handleUpdate() {
@@ -13,7 +10,7 @@ const ToolData = props => {
             {props.component.name}
         </p>
         <button 
-        onClick={e => handleUpdate()}>Reroll</button>
+        onClick={handleUpdate}>Reroll</button>
         </>
     )
 
