@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import useTools from '../../hooks/useTools';
 import useComponents from '../../hooks/useComponents';
 
-import ToolModel from '../../models/ToolModel';
+import ToolSaveForm from './ToolSaveForm';
 
 import ToolData from './ToolData';
 import ToolDefaults from './ToolDefaults'
@@ -11,6 +11,7 @@ const ToolGenerator = props => {
     const [tool, fetchTool, setTool, details, fetchDetails] = useTools();
     const [component, fetchComponent, setComponent] = useComponents();
     const [index, setIndex] = useState(null);
+    const [saveForm, setSaveForm] = useState(false);
     
 
     useEffect(
@@ -69,26 +70,19 @@ const ToolGenerator = props => {
         }
     }
 
-    function saveTool(e) {
-        e.preventDefault();
-        const components = tool.map(component => {
-            return component._id
-        });
-        const name = 'A placeholder name for now';
-        const type = props.type;
-
-        ToolModel.save({name: name, type: type, components: components}).then(data => {
-            props.history.push('/dashboard');
-        })
-    }
-
     return (
         <div>
             <h3>{props.type}</h3>
             {tool && 
-            <button onClick={saveTool}>Save Tool</button>
+            <button onClick={e => setSaveForm(true)}>Save Tool</button>
             }
             {tool && isolateComponents()}
+            {saveForm && 
+            <ToolSaveForm 
+            tool={tool}
+            type={props.type}
+            />
+            }
             {!tool && showToolDefaults()}
             <button onClick={e => fetchTool(props.slug)}>Get Random {props.type}</button>
         </div>
