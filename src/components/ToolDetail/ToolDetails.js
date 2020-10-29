@@ -1,7 +1,10 @@
+import {useState} from 'react';
 import ToolModel from '../../models/ToolModel';
+import ToolEdit from './ToolEdit';
 import {useHistory} from 'react-router-dom';
 
 const ToolDetails = props => {
+    const [editForm, setEditForm] = useState(false);
     const {tool} = props;
     const history = useHistory();
 
@@ -37,9 +40,9 @@ const ToolDetails = props => {
         <p>{tool.notes}</p> :
         <p></p>
         }
-
-
-    <button onClick={handleDelete}>Delete {tool.name}</button>
+        {editForm && <ToolEdit tool={tool} />}
+        <button onClick={e => setEditForm(true)}>Update Tool</button>
+        <button onClick={handleDelete}>Delete {tool.name}</button>
         </>
     )
 }
