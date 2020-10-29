@@ -1,10 +1,23 @@
+import ToolModel from '../../models/ToolModel';
+import {useHistory} from 'react-router-dom';
 
 const ToolDetails = props => {
     const {tool} = props;
+    const history = useHistory();
 
     function isolateComponents() {
         return tool.components.map(component => {
         return <li key={component._id}>{component.name}</li>
+        })
+    }
+
+    function handleDelete(e) {
+        e.preventDefault();
+
+        console.log(tool._id);
+        ToolModel.destroy(tool._id).then(data => {
+            console.log(data);
+            history.push('/dashboard');
         })
     }
 
@@ -24,6 +37,9 @@ const ToolDetails = props => {
         <p>{tool.notes}</p> :
         <p></p>
         }
+
+
+    <button onClick={handleDelete}>Delete {tool.name}</button>
         </>
     )
 }

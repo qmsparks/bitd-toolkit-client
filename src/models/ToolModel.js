@@ -33,7 +33,7 @@ class ToolModel {
         .catch(err => console.log(err));
     }
 
-    static save = (toolData) => {
+    static save = toolData => {
         return fetch(URL, {
             method: "POST",
             headers: {
@@ -42,6 +42,17 @@ class ToolModel {
             },
             body: JSON.stringify(toolData),
         }).then(response => response.json());
+    }
+
+    static destroy = toolId => {
+        return fetch(`${URL}/${toolId}`, {
+            method: "DELETE",
+            headers: {
+                authorization: `Bearer ${localStorage.uid}`,
+            },
+        })
+        .then(response => response.json())
+        .catch(err => console.log(err));
     }
 
 }
