@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react';
 import useTools from '../../hooks/useTools';
 import useComponents from '../../hooks/useComponents';
 
+import ToolModel from '../../models/ToolModel';
+
 import ToolData from './ToolData';
 import ToolDefaults from './ToolDefaults'
 
@@ -67,9 +69,25 @@ const ToolGenerator = props => {
         }
     }
 
+    function saveTool(e) {
+        e.preventDefault();
+        const components = tool.map(component => {
+            return component._id
+        });
+        const name = 'A placeholder name for now';
+        const type = props.type;
+
+        ToolModel.save({name: name, type: type, components: components}).then(data => {
+            props.history.push('/dashboard');
+        })
+    }
+
     return (
         <div>
             <h3>{props.type}</h3>
+            {tool && 
+            <button onClick={saveTool}>Save Tool</button>
+            }
             {tool && isolateComponents()}
             {!tool && showToolDefaults()}
             <button onClick={e => fetchTool(props.slug)}>Get Random {props.type}</button>

@@ -30,6 +30,7 @@ class ToolModel {
         return fetch(URL, {
             method: "POST",
             headers: {
+                authorization: `Bearer ${localStorage.uid}`,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(toolData),

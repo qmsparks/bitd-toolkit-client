@@ -1,15 +1,21 @@
 import useUserTools from '../hooks/useUserTools';
 
 import ToolIndex from '../components/Dashboard/ToolIndex';
+import { useEffect } from 'react';
 
 
 const Dashboard = props => {
     const [tools, fetchUserTools] = useUserTools();
 
+    useEffect(function() {
+        fetchUserTools();
+    },
+    // eslint-disable-next-line
+    [])
+
     return(
         <div>
             <h1>User Dashboard</h1>
-            <button onClick={e => fetchUserTools()}>Test this bad boy out</button>
             {tools.length ? 
             <ToolIndex data={tools} /> : 
             <h4>Loading...</h4>}

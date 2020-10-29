@@ -1,7 +1,9 @@
+import ToolCard from './ToolCard';
+
 const ToolIndex = props => {    
     function generateToolCards(tools) {
         return tools.map(tool => {
-            return <h4>{tool.name}</h4>
+            return <ToolCard key={tool._id} tool={tool} />
         })
     }
 
