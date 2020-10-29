@@ -23,7 +23,14 @@ class ToolModel {
     }
 
     static show = toolId => {
-        return fetch(`${URL}/${toolId}`).then(response => response.json());
+        return fetch(`${URL}/${toolId}`, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.uid}`,
+            },
+        })
+        .then(response => response.json())
+        .catch(err => console.log(err));
     }
 
     static save = (toolData) => {

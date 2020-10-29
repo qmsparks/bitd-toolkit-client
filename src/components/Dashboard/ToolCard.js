@@ -1,22 +1,16 @@
-// NOTE going to need to remember to import {Link} from reat-router-dom when I set up show pages
+import {Link} from 'react-router-dom';
 
 const ToolCard = props => {
     const {name, type, components, notes, _id} = props.tool
 
-
-    function isolateComponents() {
-        return components.map(component => {
-        return <li>{component.name}</li>
-        })
-    }
-
     return(
         <>
-        <h3>{name}</h3>
-        <h4>{type}</h4>
-        <ul>
-            {isolateComponents()}
-        </ul>
+        {/* Layout note to self: Would love to have the notes hang out in a popover or something, so they show up when you hover over a card here in the index. The actual show page will be more involved, and I'll tile the notes next to the tool details */}
+
+        <Link to={`/tools/${_id}`}>
+            <h3>{name}</h3>
+            <h4>{type}</h4>
+        </Link>
         </>
     )
 

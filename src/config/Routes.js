@@ -5,6 +5,7 @@ import Dashboard from '../pages/Dashboard';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Tools from '../pages/Tools';
+import ToolDetail from '../pages/ToolDetail';
 
 import {useRecoilValue} from 'recoil';
 import {loggedInState} from '../recoil/selectors';
@@ -21,6 +22,7 @@ const Routes = props => {
             {loggedIn && (
                 <Switch>
                     <Route exact path='/dashboard' component={Dashboard} />
+                    <Route path='/tools/:id' component={ToolDetail} />
                 </Switch>
             )}
         </Switch>

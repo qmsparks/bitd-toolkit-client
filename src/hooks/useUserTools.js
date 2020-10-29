@@ -1,10 +1,16 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import ToolModel from '../models/ToolModel';
 
 
-function useUserTools() {
+function useUserTools(toolId) {
     const[tools, setTools] = useState([]);
+
+    useEffect( function() {
+        fetchUserTools(toolId)
+    },
+    [toolId]);
+
 
     function fetchUserTools(id) {
         if (id) {

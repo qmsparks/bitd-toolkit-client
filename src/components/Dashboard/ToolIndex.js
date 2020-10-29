@@ -6,8 +6,6 @@ const ToolIndex = props => {
             return <ToolCard key={tool._id} tool={tool} />
         })
     }
-
-
     return (
         <div>
             {generateToolCards(props.data)}
