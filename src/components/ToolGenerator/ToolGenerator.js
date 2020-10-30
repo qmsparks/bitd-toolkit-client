@@ -1,14 +1,17 @@
 import {useEffect, useState} from 'react';
+
+import {useRecoilState} from 'recoil';
+import {userState} from '../../recoil/atoms';
+
 import useTools from '../../hooks/useTools';
 import useComponents from '../../hooks/useComponents';
-
 import ToolSaveForm from './ToolSaveForm';
-
 import ToolData from './ToolData';
 
 import './ToolGenerator.scss';
 
 const ToolGenerator = props => {
+    const [user] = useRecoilState(userState);
     const [tool, fetchTool, setTool, details, fetchDetails] = useTools();
     const [component, fetchComponent, setComponent] = useComponents();
     const [mainIndex, setMainIndex] = useState(null);
@@ -82,7 +85,7 @@ const ToolGenerator = props => {
                 Get Random {props.type}
             </tfoot>
         </table>
-            {tool &&  <button onClick={e => setSaveForm(true)}>Save Tool</button>}
+            {user && tool &&  <button onClick={e => setSaveForm(true)}>Save Tool</button>}
             {saveForm && <ToolSaveForm tool={tool} type={props.type} /> }
         </>
     )

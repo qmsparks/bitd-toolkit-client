@@ -27,55 +27,6 @@ const Sidebar = props => {
     }
 
     return (
-        // <aside>
-        //     <div className="links">
-        //         <ul>
-        //             {user &&
-        //             <li>
-        //                 Hello, {user.username}
-        //             </li>
-        //             }
-        //             <li>
-        //                 <NavLink to='/'>
-        //                     Home
-        //                 </NavLink>
-        //             </li>
-        //             <li>
-        //                 <NavLink to={'/tools'}>
-        //                     Tool Generator
-        //                 </NavLink>
-        //             </li>
-        //             {
-        //                 user ? (
-        //                     <>
-        //                     <li>
-        //                     <NavLink to={'/dashboard'}>
-        //                         Dashboard
-        //                     </NavLink>
-        //                     </li>
-        //                     <li className="btn" onClick={logout}>
-        //                         Log Out
-        //                     </li>
-        //                     </>
-        //                 ) : (
-        //                     <>
-        //                     <li>
-        //                         <NavLink to={'/register'}>
-        //                             Register
-        //                         </NavLink>
-        //                     </li>
-        //                     <li>
-        //                         <NavLink to={'/login'}>
-        //                             Login
-        //                         </NavLink>
-        //                     </li>
-        //                     </>
-        //                 )
-        //             }
-        //         </ul>
-        //     </div>
-        // </aside>
-
         <aside className="menu">
             <ul className="menu-list">
             {user &&
