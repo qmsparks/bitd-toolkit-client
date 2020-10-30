@@ -5,7 +5,8 @@ import useComponents from '../../hooks/useComponents';
 import ToolSaveForm from './ToolSaveForm';
 
 import ToolData from './ToolData';
-import ToolDefaults from './ToolDefaults'
+
+import './ToolGenerator.scss';
 
 const ToolGenerator = props => {
     const [tool, fetchTool, setTool, details, fetchDetails] = useTools();
@@ -23,52 +24,57 @@ const ToolGenerator = props => {
         [props.slug]
     )
     
-    useEffect(
-        function() {
-            if(component) {
-                return updateTool();
-            }
-        },
-        // eslint-disable-next-line
-        [component]
-    )
+    // useEffect(
+    //     function() {
+    //         if(component) {
+    //             return updateTool();
+    //         }
+    //     },
+    //     // eslint-disable-next-line
+    //     [component]
+    // )
 
-    function updateComponent(index, tooltype, category) {
-        setIndex(index);
-        fetchComponent(tooltype, category);
-    }
+    // function updateComponent(index, tooltype, category) {
+    //     setIndex(index);
+    //     fetchComponent(tooltype, category);
+    // }
 
-    function updateTool() {
-        const newTool = tool;
-        newTool[index] = component;
-        setComponent(null);
-        return setTool(newTool);
-    }
+    // function updateTool() {
+    //     const newTool = tool;
+    //     newTool[index] = component;
+    //     setComponent(null);
+    //     return setTool(newTool);
+    // }
 
-    function isolateComponents() {
-        return tool.map((component, index) => {
-            return <ToolData 
-            key={component._id} 
-            component={component}
-            index={index}
-            toolslug={props.slug}
-            newComponent={updateComponent}
-            />
+    // function isolateComponents() {
+    //     return tool.map((component, index) => {
+    //         return <ToolData 
+    //         key={component._id} 
+    //         component={component}
+    //         index={index}
+    //         toolslug={props.slug}
+    //         newComponent={updateComponent}
+    //         />
+    //     })
+    // }
+
+
+
+    function buildRows() {
+        if (!details) return <h4>Loading...</h4>
+        return details.map((config, i) => {
+            return (<tr>
+                <td>{config.category}</td>
+                    {
+                        !tool ?
+                        <td>{config.number} </td> :
+                        <ToolData category={tool[i]} />
+                    }
+
+            </tr>)
         })
     }
 
-    function showToolDefaults() {
-        if(details) {
-            const arr = Object.entries(details);
-            return arr.map(config => {
-                return <ToolDefaults key={Math.random()} name={config[0]} num={config[1]} />
-            })
-        } else {
-            return (
-                <h4>Loading...</h4>
-            )
-        }
-    }
 
     return (
         // <div>
@@ -87,14 +93,10 @@ const ToolGenerator = props => {
         //     <button onClick={e => fetchTool(props.slug)}>Get Random {props.type}</button>
         // </div>
 
-
         <table className="table">
-            <thead>
-                {props.type}
-            </thead>
+            <thead>{props.type}</thead>
             <tbody>
-            {/* {tool && isolateComponents()} */}
-            {!tool && showToolDefaults()}
+                {buildRows()}
             </tbody>
             <tfoot onClick={e => fetchTool(props.slug)}>
                 Get Random {props.type}

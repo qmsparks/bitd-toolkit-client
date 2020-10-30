@@ -1,19 +1,19 @@
 const ToolData = props => {
+    const {category} = props;
+    // function handleUpdate() {
+    //     props.newComponent(props.index, props.toolslug, props.component.category)
+    // }
 
-    function handleUpdate() {
-        props.newComponent(props.index, props.toolslug, props.component.category)
+    function isolateComponents() {
+        return category.map(component => {
+        return <td>{component.name}</td>
+        })
     }
 
-    return (
-        <>
-        <p>
-            {props.component.name}
-        </p>
-        <button 
-        onClick={handleUpdate}>Reroll</button>
-        </>
-    )
 
+    return (
+        isolateComponents()
+    )
 }
 
 
