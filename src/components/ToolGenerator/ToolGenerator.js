@@ -11,7 +11,8 @@ import './ToolGenerator.scss';
 const ToolGenerator = props => {
     const [tool, fetchTool, setTool, details, fetchDetails] = useTools();
     const [component, fetchComponent, setComponent] = useComponents();
-    const [index, setIndex] = useState(null);
+    const [mainIndex, setMainIndex] = useState(null);
+    const [nestIndex, setNestIndex] = useState(null);
     const [saveForm, setSaveForm] = useState(false);
     
 
@@ -24,41 +25,31 @@ const ToolGenerator = props => {
         [props.slug]
     )
     
-    // useEffect(
-    //     function() {
-    //         if(component) {
-    //             return updateTool();
-    //         }
-    //     },
-    //     // eslint-disable-next-line
-    //     [component]
-    // )
+    useEffect(
+        function() {
+            if(component) {
+                return updateTool();
+            }
+        },
+        // eslint-disable-next-line
+        [component]
+    )
 
-    // function updateComponent(index, tooltype, category) {
-    //     setIndex(index);
-    //     fetchComponent(tooltype, category);
-    // }
+    function updateTool() {
+        const changedCategory = tool[mainIndex];
+        changedCategory[nestIndex] = component;
 
-    // function updateTool() {
-    //     const newTool = tool;
-    //     newTool[index] = component;
-    //     setComponent(null);
-    //     return setTool(newTool);
-    // }
+        const newTool = tool;
+        newTool[mainIndex] = changedCategory;
+        setComponent(null);
+        return setTool(newTool);
+    }
 
-    // function isolateComponents() {
-    //     return tool.map((component, index) => {
-    //         return <ToolData 
-    //         key={component._id} 
-    //         component={component}
-    //         index={index}
-    //         toolslug={props.slug}
-    //         newComponent={updateComponent}
-    //         />
-    //     })
-    // }
-
-
+    function updateComponent(mainIndex, nestIndex, category) {
+        setMainIndex(mainIndex);
+        setNestIndex(nestIndex);
+        fetchComponent(props.slug, category);
+    }
 
     function buildRows() {
         if (!details) return <h4>Loading...</h4>
@@ -68,7 +59,11 @@ const ToolGenerator = props => {
                     {
                         !tool ?
                         <td>{config.number} </td> :
-                        <ToolData category={tool[i]} />
+                        <ToolData 
+                        toolIndex={i} 
+                        category={tool[i]} 
+                        newComponent={updateComponent}
+                        />
                     }
 
             </tr>)
@@ -77,22 +72,7 @@ const ToolGenerator = props => {
 
 
     return (
-        // <div>
-        //     <h3>{props.type}</h3>
-        //     {tool && 
-        //     <button onClick={e => setSaveForm(true)}>Save Tool</button>
-        //     }
-        //     {tool && isolateComponents()}
-        //     {saveForm && 
-        //     <ToolSaveForm 
-        //     tool={tool}
-        //     type={props.type}
-        //     />
-        //     }
-        //     {!tool && showToolDefaults()}
-        //     <button onClick={e => fetchTool(props.slug)}>Get Random {props.type}</button>
-        // </div>
-
+        <>
         <table className="table">
             <thead>{props.type}</thead>
             <tbody>
@@ -102,6 +82,9 @@ const ToolGenerator = props => {
                 Get Random {props.type}
             </tfoot>
         </table>
+            {tool &&  <button onClick={e => setSaveForm(true)}>Save Tool</button>}
+            {saveForm && <ToolSaveForm tool={tool} type={props.type} /> }
+        </>
     )
 }
 

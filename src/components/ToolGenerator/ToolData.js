@@ -1,12 +1,20 @@
 const ToolData = props => {
     const {category} = props;
-    // function handleUpdate() {
-    //     props.newComponent(props.index, props.toolslug, props.component.category)
-    // }
+    let catSlug;
+    
+
+    function handleUpdate(catIndex) {
+        props.newComponent(props.toolIndex, catIndex, catSlug);
+    }
+
+    
 
     function isolateComponents() {
-        return category.map(component => {
-        return <td>{component.name}</td>
+        catSlug = category[0].category;
+        return category.map((component, i) => {
+            return  (
+                <td category={component.category} onClick={e => handleUpdate(i)}>{component.name}</td>
+            )
         })
     }
 
