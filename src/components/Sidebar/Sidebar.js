@@ -6,6 +6,8 @@ import UserModel from '../../models/UserModel';
 import {useRecoilState} from 'recoil';
 import {userState} from '../../recoil/atoms';
 
+import './Sidebar.scss';
+
 const Sidebar = props => {
     const [user, setUser] = useRecoilState(userState);
 
@@ -25,10 +27,58 @@ const Sidebar = props => {
     }
 
     return (
-        <aside>
-            <div className="links">
-                <ul>
-                    {user &&
+        // <aside>
+        //     <div className="links">
+        //         <ul>
+        //             {user &&
+        //             <li>
+        //                 Hello, {user.username}
+        //             </li>
+        //             }
+        //             <li>
+        //                 <NavLink to='/'>
+        //                     Home
+        //                 </NavLink>
+        //             </li>
+        //             <li>
+        //                 <NavLink to={'/tools'}>
+        //                     Tool Generator
+        //                 </NavLink>
+        //             </li>
+        //             {
+        //                 user ? (
+        //                     <>
+        //                     <li>
+        //                     <NavLink to={'/dashboard'}>
+        //                         Dashboard
+        //                     </NavLink>
+        //                     </li>
+        //                     <li className="btn" onClick={logout}>
+        //                         Log Out
+        //                     </li>
+        //                     </>
+        //                 ) : (
+        //                     <>
+        //                     <li>
+        //                         <NavLink to={'/register'}>
+        //                             Register
+        //                         </NavLink>
+        //                     </li>
+        //                     <li>
+        //                         <NavLink to={'/login'}>
+        //                             Login
+        //                         </NavLink>
+        //                     </li>
+        //                     </>
+        //                 )
+        //             }
+        //         </ul>
+        //     </div>
+        // </aside>
+
+        <aside className="menu">
+            <ul className="menu-list">
+            {user &&
                     <li>
                         Hello, {user.username}
                     </li>
@@ -70,8 +120,7 @@ const Sidebar = props => {
                             </>
                         )
                     }
-                </ul>
-            </div>
+            </ul>
         </aside>
     )
 }

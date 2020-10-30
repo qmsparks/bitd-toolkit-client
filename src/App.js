@@ -1,7 +1,7 @@
 import Sidebar from './components/Sidebar/Sidebar';
 import Routes from './config/Routes';
 
-import './App.css';
+import './App.scss';
 
 function App() {
   return (

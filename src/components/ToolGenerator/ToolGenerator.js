@@ -71,21 +71,35 @@ const ToolGenerator = props => {
     }
 
     return (
-        <div>
-            <h3>{props.type}</h3>
-            {tool && 
-            <button onClick={e => setSaveForm(true)}>Save Tool</button>
-            }
-            {tool && isolateComponents()}
-            {saveForm && 
-            <ToolSaveForm 
-            tool={tool}
-            type={props.type}
-            />
-            }
+        // <div>
+        //     <h3>{props.type}</h3>
+        //     {tool && 
+        //     <button onClick={e => setSaveForm(true)}>Save Tool</button>
+        //     }
+        //     {tool && isolateComponents()}
+        //     {saveForm && 
+        //     <ToolSaveForm 
+        //     tool={tool}
+        //     type={props.type}
+        //     />
+        //     }
+        //     {!tool && showToolDefaults()}
+        //     <button onClick={e => fetchTool(props.slug)}>Get Random {props.type}</button>
+        // </div>
+
+
+        <table className="table">
+            <thead>
+                {props.type}
+            </thead>
+            <tbody>
+            {/* {tool && isolateComponents()} */}
             {!tool && showToolDefaults()}
-            <button onClick={e => fetchTool(props.slug)}>Get Random {props.type}</button>
-        </div>
+            </tbody>
+            <tfoot onClick={e => fetchTool(props.slug)}>
+                Get Random {props.type}
+            </tfoot>
+        </table>
     )
 }
 
