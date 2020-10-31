@@ -4,13 +4,14 @@ import ToolEdit from './ToolEdit';
 import {useHistory} from 'react-router-dom';
 
 const ToolDetails = props => {
-    const [editForm, setEditForm] = useState(false);
     const {tool} = props;
     const history = useHistory();
 
     function isolateComponents() {
+        console.log(tool);
+        console.log(tool.components);
         return tool.components.map(component => {
-        return <li key={component._id}>{component.name}</li>
+            return <li key={component._id}>{component.name}</li>
         })
     }
 
@@ -22,6 +23,11 @@ const ToolDetails = props => {
             console.log(data);
             history.push('/dashboard');
         })
+    }
+
+    function toggleForm() {
+        let modal = document.getElementById('tool-edit');
+        modal.classList.toggle('is-active');
     }
 
     return( 
@@ -40,8 +46,8 @@ const ToolDetails = props => {
         <p>{tool.notes}</p> :
         <p></p>
         }
-        {editForm && <ToolEdit tool={tool} />}
-        <button onClick={e => setEditForm(true)}>Update Tool</button>
+        {tool.components && <ToolEdit tool={tool} />}
+        <button onClick={toggleForm}>Update Tool</button>
         <button onClick={handleDelete}>Delete {tool.name}</button>
         </>
     )

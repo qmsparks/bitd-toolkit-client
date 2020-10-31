@@ -12,12 +12,17 @@ const ToolEdit = props => {
     const [type, setType] = useState(tool.type);
     const history = useHistory();
 
+    const modal = document.getElementById('tool-edit');
+
 
     useEffect(function() {
-        const components = tool.components.map(component => {
-            return component._id
-        })
-        setComponents(components);
+        console.log(tool);
+        if(tool) {
+            const components = tool.components.map(component => {
+                return component._id
+            })
+            setComponents(components);
+        }
     },
     // eslint-disable-next-line
     [])
@@ -34,29 +39,36 @@ const ToolEdit = props => {
 
 
     return (
-        <div>
-            <h3>Update Tool</h3>
-            <form onSubmit={handleSubmit}>
-                <div className="form-input">
-                    <label htmlFor="name">Update Name</label>
-                    <input 
-                    type="text"
-                    name="name"
-                    onChange={e => setName(e.target.value)}
-                    value={name}
-                    />
-                </div>
-                <div className="form-input">
-                    <label htmlFor="notes">Update Notes</label>
-                    <input 
-                    type="text"
-                    name="notes"
-                    onChange={e => setNotes(e.target.value)}
-                    value={notes}
-                    />
-                </div>
-                <input type="submit" value="Update Tool"/>
-            </form>
+        <div className="modal" id="tool-edit">
+            <div className="modal-background"></div>
+            {tool ?
+            <div className="modal-content">
+                <h3>Update Tool</h3>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-input">
+                        <label htmlFor="name">Update Name</label>
+                        <input 
+                        type="text"
+                        name="name"
+                        onChange={e => setName(e.target.value)}
+                        value={name}
+                        />
+                    </div>
+                    <div className="form-input">
+                        <label htmlFor="notes">Update Notes</label>
+                        <input 
+                        type="text"
+                        name="notes"
+                        onChange={e => setNotes(e.target.value)}
+                        value={notes}
+                        />
+                    </div>
+                    <input type="submit" value="Update Tool"/>
+                </form>
+                <button onClick={e => modal.classList.toggle('is-active')}className="modal-close is-large" aria-label="close"></button>
+            </div> :
+            <h4>Loading...</h4>  
+        }
         </div>
     )
 }

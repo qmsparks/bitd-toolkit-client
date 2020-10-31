@@ -74,7 +74,7 @@ const ToolGenerator = props => {
 
     function toggleForm() {
         let modal = document.getElementById('tool-save');
-        modal.classList.add('is-active');
+        modal.classList.toggle('is-active');
     }
 
 
