@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import ToolModel from '../../models/ToolModel';
+import NoteInput from '../Form Pieces/NoteInput';
 
 const ToolEdit = props => {
     const {tool} = props;
@@ -37,6 +38,25 @@ const ToolEdit = props => {
         })
     }
 
+    function addNote(e) {
+        e.preventDefault();
+        const stateNotes = [...notes];
+        stateNotes.push("");
+        setNotes(stateNotes);
+    }
+
+    function updateNote(value, index) {
+        const stateNotes = [...notes]
+        stateNotes[index] = value;
+        return setNotes(stateNotes);
+    }
+
+    function removeNote(index) {
+        const stateNotes = [...notes];
+        stateNotes.splice(index, 1);
+        console.log(stateNotes);
+        setNotes(stateNotes);
+    }
 
     return (
         <div className="modal" id="tool-edit">
@@ -56,12 +76,16 @@ const ToolEdit = props => {
                     </div>
                     <div className="form-input">
                         <label htmlFor="notes">Update Notes</label>
-                        <input 
+                        {/* <input 
                         type="text"
                         name="notes"
                         onChange={e => setNotes(e.target.value)}
                         value={notes}
-                        />
+                        /> */}
+                        <button onClick={addNote}>+</button>
+                        { notes.map((input, i) => {
+                            return <NoteInput key={i} index={i} saveNote={updateNote} removeNote={removeNote} value={input} />
+                        }) }
                     </div>
                     <input type="submit" value="Update Tool"/>
                 </form>

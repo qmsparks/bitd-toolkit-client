@@ -41,11 +41,7 @@ const ToolDetails = props => {
             <h4>Loading...</h4>
             }
         </ul>
-        {
-            tool.notes ?
-        <p>{tool.notes}</p> :
-        <p></p>
-        }
+        {tool.notes && tool.notes.map(note => <p>{note}</p>)}
         {tool.components && <ToolEdit tool={tool} />}
         <button onClick={toggleForm}>Update Tool</button>
         <button onClick={handleDelete}>Delete {tool.name}</button>
