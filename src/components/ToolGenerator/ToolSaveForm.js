@@ -8,7 +8,6 @@ const ToolSaveForm = props => {
     const [name, setName] = useState("");
     const [components, setComponents] = useState([]);
     const [type, setType] = useState("");
-    const [noteInputs, setNoteInputs] =  useState([{value: null}])
     const [notes, setNotes] = useState([""]);
     const history = useHistory();
     
@@ -35,19 +34,22 @@ const ToolSaveForm = props => {
 
     function addNote(e) {
         e.preventDefault();
-        const inputs = [...noteInputs];
-        inputs.push({value: null});
-        setNoteInputs(inputs);
-
-        const unsavedNotes = [...notes];
-        unsavedNotes.push("");
-        setNotes(unsavedNotes);
+        const stateNotes = [...notes];
+        stateNotes.push("");
+        setNotes(stateNotes);
     }
 
     function updateNote(value, index) {
         const stateNotes = [...notes]
         stateNotes[index] = value;
         return setNotes(stateNotes);
+    }
+
+    function removeNote(index) {
+        const stateNotes = [...notes];
+        stateNotes.splice(index, 1);
+        console.log(stateNotes);
+        setNotes(stateNotes);
     }
 
     return (
@@ -68,8 +70,8 @@ const ToolSaveForm = props => {
                     <div className="form-input">
                         <label htmlFor="notes">Add Notes</label>
                         <button onClick={addNote}>+</button>
-                        { noteInputs.map((input, i) => {
-                            return <NoteInput index={i} saveNote={updateNote} />
+                        { notes.map((input, i) => {
+                            return <NoteInput key={i} index={i} saveNote={updateNote} removeNote={removeNote} value={input} />
                             })}
                     </div>
                     <input type="submit" value="Save"/>
