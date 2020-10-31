@@ -2,14 +2,16 @@ import {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import ToolModel from '../../models/ToolModel';
+import NoteInput from '../Form Pieces/NoteInput';
 
 const ToolSaveForm = props => {
     const [name, setName] = useState("");
-    const [notes, setNotes] = useState("");
     const [components, setComponents] = useState([]);
     const [type, setType] = useState("");
+    const [noteInputs, setNoteInputs] =  useState([{value: null}])
+    const [notes, setNotes] = useState([""]);
     const history = useHistory();
-
+    
     const modal = document.getElementById('tool-save');
 
     useEffect(function() {
@@ -24,22 +26,36 @@ const ToolSaveForm = props => {
     // eslint-disable-next-line
     [])
 
-
     function handleSubmit(e) {
         e.preventDefault();
-
         ToolModel.save({name, type, components, notes}).then(data => {
             history.push('/dashboard');
         })
     }
 
+    function addNote(e) {
+        e.preventDefault();
+        const inputs = [...noteInputs];
+        inputs.push({value: null});
+        setNoteInputs(inputs);
+
+        const unsavedNotes = [...notes];
+        unsavedNotes.push("");
+        setNotes(unsavedNotes);
+    }
+
+    function updateNote(value, index) {
+        const stateNotes = [...notes]
+        stateNotes[index] = value;
+        return setNotes(stateNotes);
+    }
 
     return (
         <div className="modal" id="tool-save">
             <div className="modal-background"></div>
             <div className="modal-content">
                 <h3>Save tool</h3>
-                <form onSubmit={handleSubmit}>
+                <form id="edit-form" onSubmit={handleSubmit}>
                     <div className="form-input">
                         <label htmlFor="name">Save Name</label>
                         <input 
@@ -51,12 +67,10 @@ const ToolSaveForm = props => {
                     </div>
                     <div className="form-input">
                         <label htmlFor="notes">Add Notes</label>
-                        <input 
-                        type="text"
-                        name="notes"
-                        onChange={e => setNotes(e.target.value)}
-                        value={notes}
-                        />
+                        <button onClick={addNote}>+</button>
+                        { noteInputs.map((input, i) => {
+                            return <NoteInput index={i} saveNote={updateNote} />
+                            })}
                     </div>
                     <input type="submit" value="Save"/>
                 </form>
