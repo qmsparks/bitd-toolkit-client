@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 
 import UserModel from '../../models/UserModel';
 
@@ -10,6 +10,7 @@ import './Sidebar.scss';
 
 const Sidebar = props => {
     const [user, setUser] = useRecoilState(userState);
+    const history = useHistory();
 
     useEffect(function() {
         if (localStorage.getItem('uid')) {
@@ -24,6 +25,7 @@ const Sidebar = props => {
     function logout() {
         setUser(null);
         localStorage.clear();
+        history.push('/');
     }
 
     return (

@@ -1,10 +1,10 @@
 const ToolData = props => {
-    const {category} = props;
+    const {category, user} = props;
     let catSlug;
     
 
     function handleUpdate(catIndex) {
-        props.newComponent(props.toolIndex, catIndex, catSlug);
+        if (user) return props.newComponent(props.toolIndex, catIndex, catSlug);
     }
 
     

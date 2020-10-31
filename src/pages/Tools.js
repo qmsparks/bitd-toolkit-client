@@ -2,13 +2,13 @@ import {useState} from 'react';
 
 import ToolGenerator from '../components/ToolGenerator/ToolGenerator';
 
-import './Tools.scss';
+import '../Sass/Tools.scss';
 
 
 const Tools = props => {
-
     const [tooltype, setTooltype] = useState(null);
     const [slug, setSlug] = useState(null);
+
 
     function setGenerator(name, slug) {
         setTooltype(name);
@@ -20,47 +20,31 @@ const Tools = props => {
             <h1>
                 Tool Generator
             </h1>
-            <div className="tabs is-fullwidth is-toggle">
-                <ul>
-                    <li>
-                        {/* eslint-disable-next-line */}
-                        <a onClick={e => setGenerator('Score', 'score')}>
+            <div className="tabs is-fullwidth is-centered is-boxed">
+                <ul className="tool-menu">
+                    <li onClick={e => setGenerator('Score', 'score')}>
                         <p >Score</p>
-                        </a>
                     </li>
-                    <li>
-                        {/* eslint-disable-next-line */}
-                        <a onClick={e => setGenerator('NPC', 'npc')}>
+                    <li onClick={e => setGenerator('NPC', 'npc')}>
                         <p>NPC</p>
-                        </a>
                     </li>
-                    <li>
-                        {/* eslint-disable-next-line */}
-                        <a onClick={e => setGenerator('Ghost', 'ghost')}>
+                    <li onClick={e => setGenerator('Ghost', 'ghost')}>
                         <p>Ghost</p>
-                        </a>
                     </li>
-                    <li>
-                        {/* eslint-disable-next-line */}
-                        <a onClick={e=> setGenerator('Demon', 'demon')}>
+                    <li onClick={e=> setGenerator('Demon', 'demon')}> 
                         <p>Demon</p>
-                        </a>
                     </li>
-                    <li>
-                        {/* eslint-disable-next-line */}
-                        <a onClick={e => setGenerator('Forgotten God Cult', 'cult')}>
-                        <p>Cult</p>
-                        </a>
+                    <li onClick={e => setGenerator('Forgotten God Cult', 'cult')}>
+                        <p>Forgotten God Cult</p>
                     </li>
                 </ul>
             </div>
 
-            <section>
+            <div className="tool-table container is-max-desktop">
                 {tooltype &&
                 <ToolGenerator type={tooltype} slug={slug}/>
                 }
-            </section>
-
+            </div>
         </div>
     )
 }

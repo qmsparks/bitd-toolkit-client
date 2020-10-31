@@ -7,7 +7,7 @@ const ToolIndex = props => {
         })
     }
     return (
-        <div>
+        <div className="tool-index">
             {generateToolCards(props.data)}
         </div>
     )

@@ -11,13 +11,15 @@ const ToolSaveForm = props => {
     const history = useHistory();
 
     useEffect(function() {
-        const components = props.tool.map(component => {
-            return component._id
-        })
-        setComponents(components);
-
-        const type = props.type;
-        setType(type);
+        if (components) {
+            const components = props.tool.map(component => {
+                return component._id
+            })
+            setComponents(components);
+    
+            const type = props.type;
+            setType(type);
+        }
     },
     // eslint-disable-next-line
     [])
@@ -33,29 +35,33 @@ const ToolSaveForm = props => {
 
 
     return (
-        <div>
-            <h3>Save tool</h3>
-            <form onSubmit={handleSubmit}>
-                <div className="form-input">
-                    <label htmlFor="name">Save Name</label>
-                    <input 
-                    type="text"
-                    name="name"
-                    onChange={e => setName(e.target.value)}
-                    value={name}
-                    />
-                </div>
-                <div className="form-input">
-                    <label htmlFor="notes">Add Notes</label>
-                    <input 
-                    type="text"
-                    name="notes"
-                    onChange={e => setNotes(e.target.value)}
-                    value={notes}
-                    />
-                </div>
-                <input type="submit" value="Save"/>
-            </form>
+        <div className="modal" id="tool-save">
+            <div className="modal-background"></div>
+            <div className="modal-content">
+                <h3>Save tool</h3>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-input">
+                        <label htmlFor="name">Save Name</label>
+                        <input 
+                        type="text"
+                        name="name"
+                        onChange={e => setName(e.target.value)}
+                        value={name}
+                        />
+                    </div>
+                    <div className="form-input">
+                        <label htmlFor="notes">Add Notes</label>
+                        <input 
+                        type="text"
+                        name="notes"
+                        onChange={e => setNotes(e.target.value)}
+                        value={notes}
+                        />
+                    </div>
+                    <input type="submit" value="Save"/>
+                </form>
+                <button className="modal-close is-large" aria-label="close"></button>
+            </div>
         </div>
     )
 }

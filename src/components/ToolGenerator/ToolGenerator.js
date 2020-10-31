@@ -16,8 +16,6 @@ const ToolGenerator = props => {
     const [component, fetchComponent, setComponent] = useComponents();
     const [mainIndex, setMainIndex] = useState(null);
     const [nestIndex, setNestIndex] = useState(null);
-    const [saveForm, setSaveForm] = useState(false);
-    
 
     useEffect(
         function() {
@@ -58,7 +56,7 @@ const ToolGenerator = props => {
         if (!details) return <h4>Loading...</h4>
         return details.map((config, i) => {
             return (<tr>
-                <td>{config.category}</td>
+                <th>{config.category}</th>
                     {
                         !tool ?
                         <td>{config.number} </td> :
@@ -66,11 +64,17 @@ const ToolGenerator = props => {
                         toolIndex={i} 
                         category={tool[i]} 
                         newComponent={updateComponent}
+                        user={user}
                         />
                     }
 
             </tr>)
         })
+    }
+
+    function toggleForm() {
+        let modal = document.getElementById('tool-save');
+        modal.classList.add('is-active');
     }
 
 
@@ -85,8 +89,11 @@ const ToolGenerator = props => {
                 Get Random {props.type}
             </tfoot>
         </table>
-            {user && tool &&  <button onClick={e => setSaveForm(true)}>Save Tool</button>}
-            {saveForm && <ToolSaveForm tool={tool} type={props.type} /> }
+
+
+        {user && tool &&  <button onClick={toggleForm}>Save Tool</button>}
+
+        {tool && <ToolSaveForm tool={tool} type={props.type} />}
         </>
     )
 }

@@ -1,0 +1,9 @@
+.tool-menu {
+    li {
+        text-align: center;
+        &:hover {
+            cursor: pointer;
+            background-color: lightgray;
+        }
+    }
+}
