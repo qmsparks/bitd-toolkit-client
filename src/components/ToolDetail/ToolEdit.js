@@ -3,12 +3,13 @@ import {useHistory} from 'react-router-dom';
 
 import ToolModel from '../../models/ToolModel';
 import NoteInput from '../Form Pieces/NoteInput';
+import useNoteInputs from '../../hooks/useNoteInputs';
 
 const ToolEdit = props => {
     const {tool} = props;
 
     const [name, setName] = useState(tool.name);
-    const [notes, setNotes] = useState(tool.notes);
+    const [notes, addNote, updateNote, removeNote] = useNoteInputs(tool.notes);
     const [components, setComponents] = useState([]);
     const [type, setType] = useState(tool.type);
     const history = useHistory();
@@ -38,26 +39,6 @@ const ToolEdit = props => {
         })
     }
 
-    function addNote(e) {
-        e.preventDefault();
-        const stateNotes = [...notes];
-        stateNotes.push("");
-        setNotes(stateNotes);
-    }
-
-    function updateNote(value, index) {
-        const stateNotes = [...notes]
-        stateNotes[index] = value;
-        return setNotes(stateNotes);
-    }
-
-    function removeNote(index) {
-        const stateNotes = [...notes];
-        stateNotes.splice(index, 1);
-        console.log(stateNotes);
-        setNotes(stateNotes);
-    }
-
     return (
         <div className="modal" id="tool-edit">
             <div className="modal-background"></div>
@@ -76,12 +57,6 @@ const ToolEdit = props => {
                     </div>
                     <div className="form-input">
                         <label htmlFor="notes">Update Notes</label>
-                        {/* <input 
-                        type="text"
-                        name="notes"
-                        onChange={e => setNotes(e.target.value)}
-                        value={notes}
-                        /> */}
                         <button onClick={addNote}>+</button>
                         { notes.map((input, i) => {
                             return <NoteInput key={i} index={i} saveNote={updateNote} removeNote={removeNote} value={input} />

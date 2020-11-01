@@ -3,12 +3,13 @@ import {useHistory} from 'react-router-dom';
 
 import ToolModel from '../../models/ToolModel';
 import NoteInput from '../Form Pieces/NoteInput';
+import useNoteInputs from '../../hooks/useNoteInputs';
 
 const ToolSaveForm = props => {
     const [name, setName] = useState("");
     const [components, setComponents] = useState([]);
     const [type, setType] = useState("");
-    const [notes, setNotes] = useState([""]);
+    const [notes, addNote, updateNote, removeNote] = useNoteInputs([]);
     const history = useHistory();
     
     const modal = document.getElementById('tool-save');
@@ -30,26 +31,6 @@ const ToolSaveForm = props => {
         ToolModel.save({name, type, components, notes}).then(data => {
             history.push('/dashboard');
         })
-    }
-
-    function addNote(e) {
-        e.preventDefault();
-        const stateNotes = [...notes];
-        stateNotes.push("");
-        setNotes(stateNotes);
-    }
-
-    function updateNote(value, index) {
-        const stateNotes = [...notes]
-        stateNotes[index] = value;
-        return setNotes(stateNotes);
-    }
-
-    function removeNote(index) {
-        const stateNotes = [...notes];
-        stateNotes.splice(index, 1);
-        console.log(stateNotes);
-        setNotes(stateNotes);
     }
 
     return (
