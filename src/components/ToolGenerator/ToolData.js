@@ -13,7 +13,7 @@ const ToolData = props => {
         catSlug = category[0].category;
         return category.map((component, i) => {
             return  (
-                <td category={component.category} onClick={e => handleUpdate(i)}>{component.name}</td>
+                <td className="detail-cell" category={component.category} onClick={e => handleUpdate(i)}>{component.name}</td>
             )
         })
     }

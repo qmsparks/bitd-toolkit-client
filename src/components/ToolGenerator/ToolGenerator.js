@@ -55,11 +55,12 @@ const ToolGenerator = props => {
     function buildRows() {
         if (!details) return <h4>Loading...</h4>
         return details.map((config, i) => {
-            return (<tr>
-                <th>{config.category}</th>
+            return (
+            <tr>
+                <th className="category-cell">{config.category}</th>
                     {
                         !tool ?
-                        <td>{config.number} </td> :
+                        <td className="number-cell">{config.number} </td> :
                         <ToolData 
                         toolIndex={i}
                         category={tool[i]}
@@ -69,7 +70,8 @@ const ToolGenerator = props => {
                         />
                     }
 
-            </tr>)
+            </tr>
+            )
         })
     }
 
@@ -80,22 +82,21 @@ const ToolGenerator = props => {
 
 
     return (
-        <>
-        <table className="table">
-            <thead>{props.type}</thead>
-            <tbody>
-                {buildRows()}
-            </tbody>
-            <tfoot onClick={e => fetchTool(props.slug)}>
-                Get Random {props.type}
-            </tfoot>
-        </table>
-
-
-        {user && tool &&  <button onClick={e => toggleForm()}>Save Tool</button>}
-
-        {tool && <ToolSaveForm details={details} tool={tool} type={props.type} />}
-        </>
+        <div className="generator-container">
+            <div className="table-container">
+                <table className="table">
+                    <tbody>
+                        {buildRows()}
+                    </tbody>
+                </table>
+                {user && tool &&  <span className="save-target" onClick={e => toggleForm()}>Save Tool</span>}
+            </div>
+            
+            <section className="foot">
+                <span onClick={e => fetchTool(props.slug)}>Get Random {props.type}</span>
+                {tool && <ToolSaveForm details={details} tool={tool} type={props.type} />}
+            </section>
+        </div>
     )
 }
 
