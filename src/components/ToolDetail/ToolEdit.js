@@ -5,6 +5,8 @@ import ToolModel from '../../models/ToolModel';
 import NoteInput from '../Form Pieces/NoteInput';
 import useNoteInputs from '../../hooks/useNoteInputs';
 
+import {CgAddR} from 'react-icons/cg';
+
 const ToolEdit = props => {
     const {tool} = props;
 
@@ -43,28 +45,35 @@ const ToolEdit = props => {
         <div className="modal" id="tool-edit">
             <div className="modal-background"></div>
             {tool ?
-            <div className="modal-content">
+            <div className="modal-card">
+                <header className="modal-card-head">
                 <h3>Update Tool</h3>
-                <form onSubmit={handleSubmit}>
-                    <div className="form-input">
-                        <label htmlFor="name">Update Name</label>
-                        <input 
-                        type="text"
-                        name="name"
-                        onChange={e => setName(e.target.value)}
-                        value={name}
-                        />
-                    </div>
-                    <div className="form-input">
-                        <label htmlFor="notes">Update Notes</label>
-                        <button onClick={addNote}>+</button>
-                        { notes.map((input, i) => {
-                            return <NoteInput key={i} index={i} saveNote={updateNote} removeNote={removeNote} value={input} />
-                        }) }
-                    </div>
-                    <input type="submit" value="Update Tool"/>
-                </form>
-                <button onClick={e => modal.classList.toggle('is-active')}className="modal-close is-large" aria-label="close"></button>
+                </header>
+                <section className="modal-card-body">
+                    <form onSubmit={handleSubmit}>
+                        <div className="field">
+                            <label htmlFor="name">Update Name</label>
+                            <div className="control">
+                                <input 
+                                type="text"
+                                name="name"
+                                onChange={e => setName(e.target.value)}
+                                value={name}
+                                />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <label htmlFor="notes">Update Notes <i onClick={addNote}><CgAddR /></i></label>
+                                { notes.map((input, i) => {
+                                    return <NoteInput key={i} index={i} saveNote={updateNote} removeNote={removeNote} value={input} />
+                                }) }
+                        </div>
+                        <input type="submit" value="Update Tool"/>
+                    </form>
+                </section>
+                <footer className="modal-card-foot">
+                    <button onClick={e => modal.classList.toggle('is-active')}className="modal-close is-large" aria-label="close"></button>
+                </footer>
             </div> :
             <h4>Loading...</h4>  
         }

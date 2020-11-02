@@ -1,9 +1,11 @@
 @charset "utf-8";
 @import './Sass/Partials/overrides';
 @import "../node_modules/bulma/bulma.sass";
+@import './Sass/Forms.scss';
 
 body {
-    height: 100vh;
+    min-height: 100vh;
+    background-color: $body;
 }
 
 h1 {

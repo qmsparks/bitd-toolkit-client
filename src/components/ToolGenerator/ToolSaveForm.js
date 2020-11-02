@@ -5,6 +5,8 @@ import ToolModel from '../../models/ToolModel';
 import NoteInput from '../Form Pieces/NoteInput';
 import useNoteInputs from '../../hooks/useNoteInputs';
 
+import {CgAddR} from 'react-icons/cg';
+
 const ToolSaveForm = props => {
     const [name, setName] = useState("");
     const [components, setComponents] = useState([]);
@@ -54,28 +56,37 @@ const ToolSaveForm = props => {
     return (
         <div className="modal" id="tool-save">
             <div className="modal-background"></div>
-            <div className="modal-content">
-                <h3>Save tool</h3>
-                <form id="edit-form" onSubmit={handleSubmit}>
-                    <div className="form-input">
-                        <label htmlFor="name">Save Name</label>
-                        <input 
-                        type="text"
-                        name="name"
-                        onChange={e => setName(e.target.value)}
-                        value={name}
-                        />
-                    </div>
-                    <div className="form-input">
-                        <label htmlFor="notes">Add Notes</label>
-                        <button onClick={addNote}>+</button>
-                        { notes.map((input, i) => {
-                            return <NoteInput key={i} index={i} saveNote={updateNote} removeNote={removeNote} value={input} />
-                            })}
-                    </div>
-                    <input type="submit" value="Save"/>
-                </form>
-                <button onClick={toggleForm}className="modal-close is-large" aria-label="close"></button>
+            <div className="modal-card">
+                <header className="modal-card-head">
+                    <h3>Save tool</h3>
+                </header>
+                <section className="modal-card-body">
+                    <form onSubmit={handleSubmit}>
+                        <div className="field">
+                            <label htmlFor="name">Save Name</label>
+                            <div className="control">
+                                <input 
+                                type="text"
+                                name="name"
+                                onChange={e => setName(e.target.value)}
+                                value={name}
+                                />
+                            </div>
+                        </div>
+                        <div className="field">
+                        <label htmlFor="notes">Add Notes <i onClick={addNote}><CgAddR /></i></label>
+                            <div className="control">
+                                { notes.map((input, i) => {
+                                    return <NoteInput key={i} index={i} saveNote={updateNote} removeNote={removeNote} value={input} />
+                                    })}
+                            </div>
+                        </div>
+                        <input className="submit-button" type="submit" value="Save"/>
+                    </form>
+                </section>
+                <footer className="modal-card-foot">
+                    <button onClick={toggleForm}className="modal-close is-large" aria-label="close"></button>
+                </footer>
             </div>
         </div>
     )

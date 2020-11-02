@@ -15,8 +15,10 @@
     }
 
     .panel {
-        border: 2px solid black;
+        border: 1px solid black;
+        border-radius: 0;
         font-family: $handwriting;
+        background-color: whitesmoke;
     
         .panel-heading, .category-name{
             font-family: $headers;

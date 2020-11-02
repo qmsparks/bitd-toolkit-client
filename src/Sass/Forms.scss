@@ -1,0 +1,41 @@
+@import './Partials/fonts';
+
+
+.modal-card {
+
+    .modal-card-head, .modal-card-foot {
+        background-color: slateblue;
+        font-family: $headers;
+        font-size: 1.2rem;
+    }
+}
+
+
+form {
+    label, .submit-button {
+        font-family: $headers;
+    }
+
+    input, textarea {
+        font-family: $handwriting;
+        font-size: 1.2rem;
+    }
+
+    .note-input {
+        position: relative;
+    
+        .delete-note {
+            position: absolute;
+            right: 7px;
+            top: 4px;
+    
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+}
+
+
+

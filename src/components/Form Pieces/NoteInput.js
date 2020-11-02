@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import {CgCloseR} from 'react-icons/cg';
+
 const NoteInput = props => {
     const {index, value} = props;
     const [note, setNote] = useState(value);
@@ -16,15 +18,17 @@ const NoteInput = props => {
     }
 
     return (
-        <>
-        <input 
-            type="text"
-            name={`note ${index}`}
-            onChange={e=> handleChange(e)}
-            value={value}
-            />
-            <button onClick={e => handleRemove(e)}>x</button>
-            </>
+        <div className="field">
+            <div className="control note-input">
+                <textarea className="textarea is-medium"
+                name={`note ${index}`}
+                onChange={e=> handleChange(e)}
+                value={value}
+                />
+                
+                <i className="delete-note" onClick={e => handleRemove(e)}><CgCloseR /></i>
+            </div>
+        </div>
     )
 }
 
