@@ -8,29 +8,47 @@ import useNoteInputs from '../../hooks/useNoteInputs';
 const ToolSaveForm = props => {
     const [name, setName] = useState("");
     const [components, setComponents] = useState([]);
-    const [type, setType] = useState("");
+    const [type] = useState(props.type);
     const [notes, addNote, updateNote, removeNote] = useNoteInputs([]);
     const history = useHistory();
+    const [componentTypes, setComponentTypes] = useState([]);
+
+    const {details, tool} = props;
     
     const modal = document.getElementById('tool-save');
 
+    useEffect(function(){
+        const categories = details.map(component => {
+            return component.category;
+        })
+        setComponentTypes(categories);
+    },[]);
+
     useEffect(function() {
-            const components = props.tool.map(component => {
-                return component[0]._id
-            })
-            setComponents(components);
-    
-            const type = props.type;
-            setType(type);
+        updateFormComponents();
     },
     // eslint-disable-next-line
-    [])
+    [props])
+
+    function updateFormComponents() {
+        const components = tool.map(componentType => {
+            console.log(componentType);
+            return componentType.map(component => {
+                return component.name;
+            })
+        })
+        setComponents(components);
+    }
 
     function handleSubmit(e) {
         e.preventDefault();
-        ToolModel.save({name, type, components, notes}).then(data => {
+        ToolModel.save({name, type, componentTypes, components, notes}).then(data => {
             history.push('/dashboard');
         })
+    }
+
+    function toggleForm() {
+        modal.classList.toggle('is-active');
     }
 
     return (
@@ -57,7 +75,7 @@ const ToolSaveForm = props => {
                     </div>
                     <input type="submit" value="Save"/>
                 </form>
-                <button onClick={e => modal.classList.toggle('is-active')}className="modal-close is-large" aria-label="close"></button>
+                <button onClick={toggleForm}className="modal-close is-large" aria-label="close"></button>
             </div>
         </div>
     )

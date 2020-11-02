@@ -61,8 +61,9 @@ const ToolGenerator = props => {
                         !tool ?
                         <td>{config.number} </td> :
                         <ToolData 
-                        toolIndex={i} 
-                        category={tool[i]} 
+                        toolIndex={i}
+                        category={tool[i]}
+                        categoryName={details[i].category} 
                         newComponent={updateComponent}
                         user={user}
                         />
@@ -91,9 +92,9 @@ const ToolGenerator = props => {
         </table>
 
 
-        {user && tool &&  <button onClick={toggleForm}>Save Tool</button>}
+        {user && tool &&  <button onClick={e => toggleForm()}>Save Tool</button>}
 
-        {tool && <ToolSaveForm tool={tool} type={props.type} />}
+        {tool && <ToolSaveForm details={details} tool={tool} type={props.type} />}
         </>
     )
 }

@@ -1,0 +1,30 @@
+@import '../../Sass/Partials/fonts';
+@import '../../Sass/Partials/colors';
+
+
+.card {
+    width: 20vw;
+    height: 40vh;
+    font-family: $handwriting;
+    font-size:1.1rem;
+    margin-bottom: 30px;
+    // border: 2px solid gray;
+    border-left: 2px double $legal-pad-vertical;
+    
+
+
+    .card-header{
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        border-bottom: 2px solid $legal-pad-horizontal;
+    }
+
+    .card-content {
+        margin: 0 30px;
+        // border-left: 2px solid $legal-pad-vertical;
+        text-decoration: underline $legal-pad-horizontal;
+    }
+}
+
+

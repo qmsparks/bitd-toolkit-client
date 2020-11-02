@@ -1,16 +1,24 @@
 import {Link} from 'react-router-dom';
+import './ToolCard.scss';
 
 const ToolCard = props => {
-    const {name, type, components, notes, _id} = props.tool
+    const {name, notes, _id} = props.tool
 
     return(
         <>
-        {/* Layout note to self: Would love to have the notes hang out in a popover or something, so they show up when you hover over a card here in the index. The actual show page will be more involved, and I'll tile the notes next to the tool details */}
+            <Link to={`/tools/${_id}`}>
+                <div className="card">
+                    <header className="card-header">
+                        {name}
+                    </header>
+                    <div className="card-content">
+                        {notes && notes[0]}
 
-        <Link to={`/tools/${_id}`}>
-            <h3>{name}</h3>
-            <h4>{type}</h4>
-        </Link>
+                        {/* TODO */}
+                        <p>Note to self: track down some fun simple sketch-style images I can legally grab and randomly slap onto these cards</p>
+                    </div>
+                </div>
+            </Link>
         </>
     )
 

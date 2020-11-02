@@ -26,6 +26,17 @@ class ToolModel {
         .catch(err => console.log(err));
     }
 
+    static filter = type => {
+        return fetch(`${URL}/filter/${type}`, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.uid}`,
+            },
+        })
+        .then(response => response.json())
+        .catch(err => console.log(err));
+    }
+
     static show = toolId => {
         return fetch(`${URL}/${toolId}`, {
             method: "GET",

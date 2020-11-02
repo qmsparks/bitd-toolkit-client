@@ -1,25 +1,50 @@
+import {useState} from 'react';
 import useUserTools from '../hooks/useUserTools';
 
 import ToolIndex from '../components/Dashboard/ToolIndex';
-import { useEffect } from 'react';
 
+import '../Sass/Dashboard.scss';
 
 const Dashboard = props => {
-    const [tools, fetchUserTools] = useUserTools();
+    const [tools, filterUserTools] = useUserTools();
+    const [activeTab, setActiveTab] = useState(false);
 
-    // FIXME reconfigure so this reaps the benefits of the useeffect now embedded in useUserTools
-    useEffect(function() {
-        fetchUserTools();
-    },
-    // eslint-disable-next-line
-    [])
+    function handleFilter(tooltype) {
+        filterUserTools(tooltype);
+        setActiveTab(true);
+    }
 
     return(
         <div>
             <h1>User Dashboard</h1>
-            {tools.length ? 
-            <ToolIndex data={tools} /> : 
-            <h4>Loading...</h4>}
+            <div className="tabs is-fullwidth is-centered is-boxed">
+                <ul className="tool-index-filter">
+                    <li  onClick={e => handleFilter('Score')}>
+                        <p>Scores</p>
+                    </li>
+                    <li onClick={e => handleFilter('NPC')}>
+                        <p>NPCs</p>
+                    </li>
+                    <li onClick={e => handleFilter('Ghost')}>
+                        <p>Ghosts</p>
+                    </li>
+                    <li onClick={e => handleFilter('Demon')}> 
+                        <p>Demons</p>
+                    </li>
+                    <li onClick={e=> handleFilter('Forgotten God Cult')}>
+                        <p>Forgotten God Cults</p>
+                    </li>
+                </ul>
+            </div>
+
+            {/* {
+            activeTab ?
+            <ToolIndex data={tools} /> :
+            <h4>Select a category above to view your saved tools</h4>
+            } */}
+            <ToolIndex data={tools} />
+
+
         </div>
     )
 }

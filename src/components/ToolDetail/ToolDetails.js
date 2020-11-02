@@ -3,6 +3,8 @@ import ToolModel from '../../models/ToolModel';
 import ToolEdit from './ToolEdit';
 import {useHistory} from 'react-router-dom';
 
+import './ToolDetail.scss';
+
 const ToolDetails = props => {
     const {tool} = props;
     const history = useHistory();
@@ -10,8 +12,22 @@ const ToolDetails = props => {
     function isolateComponents() {
         console.log(tool);
         console.log(tool.components);
-        return tool.components.map(component => {
-            return <li key={component._id}>{component.name}</li>
+        return tool.components.map((component, i) => {
+            return (
+                <>
+                <div className="panel-block category-name">
+                    {tool.componentTypes[i]}
+                </div>
+                {tool.components[i].map(component => {
+                    return(
+                        <div className="panel-block">
+                            {component}
+                        </div>
+                    )
+                })}
+                </>
+                
+            )
         })
     }
 
@@ -32,19 +48,40 @@ const ToolDetails = props => {
 
     return( 
         <>
-        <h3>{tool.name}</h3>
-        <h5>{tool.type}</h5>
-        <ul>
-            {
-            tool.components ?
-            isolateComponents() :
-            <h4>Loading...</h4>
-            }
-        </ul>
-        {tool.notes && tool.notes.map(note => <p>{note}</p>)}
+        <section className="tool-show-container">
+            <div className="columns">
+
+                <div className="panel column tool-detail">
+                    <p className="panel-heading">{tool.type}</p>
+                    <div className="panel-block tool-name">
+                        {tool.name}
+                    </div>
+                    <div className="components">
+                        {tool.components ?
+                        isolateComponents() :
+                        <h4>Loading...</h4>}
+                    </div>
+                </div>
+
+                <div className="panel column tool-notes">
+                    <p className="panel-heading">Notes</p>
+                    {tool.notes && tool.notes.map(note => <div className="panel-block">{note}</div>)}
+                </div>
+            </div>
+
+        </section>
         {tool.components && <ToolEdit tool={tool} />}
-        <button onClick={toggleForm}>Update Tool</button>
-        <button onClick={handleDelete}>Delete {tool.name}</button>
+        <div className="buttons">
+            <div onClick={toggleForm} className="block">
+                <span className="tag is-warning">Update Tool</span>
+            </div>
+            <div onClick={handleDelete} className="block">
+                <span className="tag is-danger">Delete {tool.name}
+                <button className="delete is-small"></button>
+                </span>
+            </div>
+
+        </div>
         </>
     )
 }

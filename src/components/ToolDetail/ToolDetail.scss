@@ -1,0 +1,55 @@
+@import '../../Sass/Partials/fonts';
+@import '../../Sass/Partials/colors';
+
+
+.tool-show-container {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+
+    .columns {
+        width: 60vw;
+        .column {
+            margin: 30px;
+        }
+    }
+
+    .panel {
+        border: 2px solid black;
+        font-family: $handwriting;
+    
+        .panel-heading, .category-name{
+            font-family: $headers;
+            font-weight: bold;
+        }
+    
+        .panel-block {
+            font-size: 1.2rem;
+        }
+    
+        .tool-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .components {
+            max-height: 40vh;
+            overflow: scroll;
+        }
+    }
+
+}
+
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+
+    .block {
+        &:hover {cursor:pointer;}
+    }
+}

@@ -1,0 +1,15 @@
+.tool-index-filter {
+    li {
+        text-align: center;
+        &:hover {
+            cursor: pointer;
+            background-color: lightgray;
+        }
+    }
+}
+
+.tool-index {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

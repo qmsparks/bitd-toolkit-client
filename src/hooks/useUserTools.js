@@ -7,7 +7,8 @@ function useUserTools(toolId) {
     const[tools, setTools] = useState([]);
 
     useEffect( function() {
-        fetchUserTools(toolId)
+        console.log(toolId);
+        fetchUserTools(toolId);
     },
     [toolId]);
 
@@ -18,13 +19,19 @@ function useUserTools(toolId) {
                 setTools(data.tool)
             })
         } else {
-            ToolModel.all().then(data => {
+            ToolModel.all().then(data=> {
                 setTools(data.tools);
             })
         }
     }
 
-    return [tools, fetchUserTools];
+    function filterUserTools(type) {
+        ToolModel.filter(type).then(data => {
+            setTools(data.tools);
+        })
+    }
+
+    return [tools, filterUserTools];
 }
 
 export default useUserTools;
