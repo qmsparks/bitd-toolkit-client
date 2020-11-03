@@ -7,32 +7,53 @@ import '../Sass/Dashboard.scss';
 
 const Dashboard = props => {
     const [tools, filterUserTools] = useUserTools();
-    const [activeTab, setActiveTab] = useState(false);
+    const [activeTab, setActiveTab] = useState(null);
 
-    function handleFilter(tooltype) {
+    function handleFilter(tooltype, clickedTab) {
+        if(activeTab) {
+            const deactivateTab = document.querySelector(`.${activeTab}`);
+            deactivateTab.classList.toggle('is-active');
+        } else {
+            const page = document.querySelector('.dashboard');
+            page.classList.add('active-page');
+        }
+
+        setActiveTab(clickedTab);
+        const activateTab = document.querySelector(`.${clickedTab}`);
+        activateTab.classList.toggle('is-active');
+
         filterUserTools(tooltype);
-        setActiveTab(true);
     }
 
     return(
-        <div>
-            <h1>User Dashboard</h1>
-            <div className="tabs is-fullwidth is-centered is-boxed">
+        <div className="dashboard">
+            {/* <h1>User Dashboard</h1> */}
+            <div className="tabs is-centered is-boxed">
                 <ul className="tool-index-filter">
-                    <li  onClick={e => handleFilter('Score')}>
+                    <li className="score-tab" onClick={e => handleFilter('Score', 'score-tab')}>
+                        <a>
                         <p>Scores</p>
+                        </a>
                     </li>
-                    <li onClick={e => handleFilter('NPC')}>
+                    <li className="npc-tab" onClick={e => handleFilter('NPC', 'npc-tab')}>
+                        <a>
                         <p>NPCs</p>
+                        </a>
                     </li>
-                    <li onClick={e => handleFilter('Ghost')}>
+                    <li className="ghost-tab" onClick={e => handleFilter('Ghost', 'ghost-tab')}>
+                        <a>
                         <p>Ghosts</p>
+                        </a>
                     </li>
-                    <li onClick={e => handleFilter('Demon')}> 
+                    <li className="demon-tab" onClick={e => handleFilter('Demon', 'demon-tab')}> 
+                        <a>
                         <p>Demons</p>
+                        </a>
                     </li>
-                    <li onClick={e=> handleFilter('Forgotten God Cult')}>
+                    <li className="cult-tab" onClick={e=> handleFilter('Forgotten God Cult', 'cult-tab')}>
+                        <a>
                         <p>Forgotten God Cults</p>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -42,7 +63,9 @@ const Dashboard = props => {
             <ToolIndex data={tools} /> :
             <h4>Select a category above to view your saved tools</h4>
             } */}
+            <div className="index-container">
             <ToolIndex data={tools} />
+            </div>
 
 
         </div>

@@ -5,10 +5,8 @@
 
 body {
     min-height: 100vh;
-    background-color: $body;
+    background-image: $grid-with-triangle;
+    background-size: cover;
+    background-position: center;
     font-family: $headers;
-}
-
-h1 {
-    text-align: center;
 }

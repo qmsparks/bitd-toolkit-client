@@ -1,9 +1,39 @@
+@import '../Sass/Partials/colors';
+
 .tool-menu {
     li {
         text-align: center;
-        &:hover {
-            cursor: pointer;
-            background-color: lightgray;
+    }
+}
+
+.tool-page {
+    min-height: 100vh;
+    position: relative;
+    margin-left: 160px;
+}
+
+.tabs {
+    background-color: $cover-dark;
+
+}
+
+.generator-info {
+    display: flex;
+    justify-content: flex-end;
+
+    .card {
+        transform: rotate(-15deg);
+
+        .card-content{
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
     }
+}
+
+
+.doodle {
+    font-size: 2em;
 }

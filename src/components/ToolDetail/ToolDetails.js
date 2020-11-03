@@ -10,8 +10,6 @@ const ToolDetails = props => {
     const history = useHistory();
 
     function isolateComponents() {
-        console.log(tool);
-        console.log(tool.components);
         return tool.components.map((component, i) => {
             return (
                 <>

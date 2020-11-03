@@ -1,26 +1,13 @@
-import { useEffect } from 'react';
 import {NavLink, useHistory} from 'react-router-dom';
 
-import UserModel from '../../models/UserModel';
-
-import {useRecoilState} from 'recoil';
-import {userState} from '../../recoil/atoms';
+import useAuth from '../../hooks/useAuth';
 
 import './Sidebar.scss';
 
 const Sidebar = props => {
-    const [user, setUser] = useRecoilState(userState);
     const history = useHistory();
+    const [user, setUser] = useAuth();
 
-    useEffect(function() {
-        if (localStorage.getItem('uid')) {
-            UserModel.show().then(response => {
-                setUser(response.data);
-            })
-        }
-    }, 
-    // eslint-disable-next-line
-    []);
 
     function logout() {
         setUser(null);
@@ -31,7 +18,7 @@ const Sidebar = props => {
     return (
         <aside className="menu">
             <ul className="menu-list">
-            {user &&
+                    {user &&
                     <li>
                         Hello, {user.username}
                     </li>
@@ -46,32 +33,15 @@ const Sidebar = props => {
                             Tool Generator
                         </NavLink>
                     </li>
-                    {
-                        user ? (
-                            <>
-                            <li>
-                            <NavLink to={'/dashboard'}>
-                                Dashboard
-                            </NavLink>
-                            </li>
-                            <li className="btn" onClick={logout}>
-                                Log Out
-                            </li>
-                            </>
-                        ) : (
-                            <>
-                            <li>
-                                <NavLink to={'/register'}>
-                                    Register
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/login'}>
-                                    Login
-                                </NavLink>
-                            </li>
-                            </>
-                        )
+                    <li>
+                    <NavLink to={'/dashboard'}>
+                        Dashboard
+                    </NavLink>
+                    </li>
+                    {user &&
+                    <li className="btn" onClick={logout}>
+                        Log Out
+                    </li>
                     }
             </ul>
         </aside>

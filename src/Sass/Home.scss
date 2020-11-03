@@ -1,0 +1,27 @@
+@import './Partials/fonts';
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 160px;
+    
+
+    .splash {
+        margin: 20px;
+    }
+
+    h1 {
+        font-family: $handwrite-title;
+        font-size: 2rem;
+    }
+
+    .auth-stickies {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+}

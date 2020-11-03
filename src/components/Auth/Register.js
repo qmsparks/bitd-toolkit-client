@@ -1,13 +1,13 @@
 import {useState} from 'react';
-
-import AuthModel from '../models/AuthModel';
+import {useHistory} from 'react-router-dom';
+import AuthModel from '../../models/AuthModel';
 
 const Register = props => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-
+    const history = useHistory();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -15,7 +15,9 @@ const Register = props => {
         AuthModel.register({username, email, password}).then(response => {
             console.log(response);
             if (response.status === 201) {
-                props.history.push('login');
+                // FIXME having these forms just on sticky notes means I'm gonna need to do something about the way this redirect is done
+                // maybe go ahead and set it up so it logs them in automatically, like with the last project
+                history.push('/');
             } else {
                 setError(response.message);
             }

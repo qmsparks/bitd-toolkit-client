@@ -1,3 +1,5 @@
+import {GiDiceTwentyFacesTwenty} from 'react-icons/gi';
+
 const ToolData = props => {
     const {category, user} = props;
     let catSlug;
@@ -13,15 +15,16 @@ const ToolData = props => {
         catSlug = category[0].category;
         return category.map((component, i) => {
             return  (
-                <td className="detail-cell" category={component.category} onClick={e => handleUpdate(i)}>{component.name}</td>
+                <>
+                <p>{component.name}</p>
+                <i category={component.category} onClick={e => handleUpdate(i)}><GiDiceTwentyFacesTwenty /></i>
+                </>
             )
         })
     }
 
 
-    return (
-        isolateComponents()
-    )
+    return isolateComponents()
 }
 
 
