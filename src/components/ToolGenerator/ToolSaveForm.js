@@ -52,7 +52,7 @@ const ToolSaveForm = props => {
 
     return (
         <div className="save-form">
-            <span>
+            <span className="save-head">
                 <h3>Save this {type}</h3>
                 <i className="submit" onClick={handleSubmit}><GiChest /></i>
             </span>
@@ -69,7 +69,7 @@ const ToolSaveForm = props => {
                     </div>
                     </div>
                     <div className="field">
-                        <label htmlFor="notes">Add Notes <i onClick={addNote}><CgAddR /></i></label>
+                        <label htmlFor="notes">Add Notes <i className="add-note" onClick={addNote}><CgAddR /></i></label>
                             <div className="control">
                                 { notes.map((input, i) => {
                                     return <NoteInput key={i} index={i} saveNote={updateNote} removeNote={removeNote} value={input} />

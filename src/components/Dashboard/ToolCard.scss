@@ -2,21 +2,16 @@
 @import '../../Sass/Partials/colors';
 
 
-.card {
-    position: relative;
-    width: 20vw;
-    height: 40vh;
-    font-family: $handwriting;
-    font-size:1.1rem;
+
+.tool-overview {
     margin-bottom: 30px;
-    
+
     .v{
         position: absolute;
         left: 35px;
         height: inherit;
         border-left: 2px double $legal-pad-vertical;
     }
-    
 
     .card-header{
         font-family: $handwrite-title;
@@ -27,20 +22,14 @@
         border-bottom: 2px solid $legal-pad-horizontal;
 
     }
-            
 
-    .card-content {
-        height: inherit;
-        padding-left: 45px;
-        display: flex;
-        flex-direction: column;
-
-        h2 {
-            margin-right: 35px;
-            font-weight: bold;
-            align-self: center;
-        }
+    h2 {
+        margin-right: 35px;
+        font-weight: bold;
+        align-self: center;
     }
+
 }
+
 
 

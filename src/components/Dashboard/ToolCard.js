@@ -7,7 +7,7 @@ const ToolCard = props => {
     return(
         <>
             <Link to={`/tools/${_id}`}>
-                <div className="card">
+                <div className="card tool-overview">
                     <div className="v"></div>
                     <header className="card-header">
                         <h3>

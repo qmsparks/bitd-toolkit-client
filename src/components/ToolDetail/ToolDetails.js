@@ -147,7 +147,6 @@ const ToolDetails = props => {
                         <p>Keep it how it was</p>:
                         <p>Click to make a change</p>
                         }
-
                     </span>
 
                     {editMode && <span className="edit-confirmation">
@@ -158,11 +157,19 @@ const ToolDetails = props => {
                 </div>
             </div>
 
+
+
+
+
+
+
+
+
             <div className="card delete-info">
                 <div className="card-content">
                     <p>Don't wanna keep this one anymore?</p>
                     <p>That's what knives are for</p>
-                    <i onClick={toggleDelete}><GiSacrificialDagger /></i>
+                    <i className="delete-knife" onClick={toggleDelete}><GiSacrificialDagger /></i>
                 </div>
             </div>
 
@@ -170,7 +177,7 @@ const ToolDetails = props => {
             <div className="card delete-confirmation">
                 <div className="card-content">
                     <p>Are you sure? There's no bringing this back once it's gone.</p>
-                    <i className="confirm" onClick={handleDelete}><GiSacrificialDagger /></i>
+                    <i className="delete-knife" onClick={handleDelete}><GiSacrificialDagger /></i>
                     <i className="back" onClick={toggleDelete}><RiSkipBackFill /></i>
                 </div>
             </div>

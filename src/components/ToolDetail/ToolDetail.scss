@@ -83,6 +83,7 @@
             transform: rotate(-17deg);
         }
 
+        // FIXME I feel like getting this to work requires bringing the edit-toggle span into play, surely
         .toggle-doodle {
             position: absolute;
             top: 25px;
@@ -129,15 +130,15 @@
         p {
             margin-bottom: 15px;
         }
+    }
 
-        i {
-            position: absolute;
-            bottom: 0;
-            right: 20px;
+    .delete-knife {
+        position: absolute;
+        bottom: 0;
+        right: 20px;
 
-            &:hover {
-                color: red;
-            }
+        &:hover {
+            color: red;
         }
     }
 
@@ -150,23 +151,13 @@
         background-color: darkslategray;
         color: $whale-oil-blue;
 
-        .confirm {
-            position: absolute;
-            bottom: 0;
-            right: 20px;
-
-            &:hover {
-                color: red;
-            }
-        }
-
         .back {
             position: absolute;
             top: 10px;
             left: 5px;
 
             &:hover {
-                color: rgb(100, 245, 100);
+                color: $confirm;
             }
         }
     }

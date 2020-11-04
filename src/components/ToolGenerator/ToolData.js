@@ -18,7 +18,7 @@ const ToolData = props => {
                 <>
                 <p>{component.name}</p>
                 {user &&
-                <i category={component.category} onClick={e => handleUpdate(i)}><GiRollingDices /></i>
+                <i className="small-reroll" category={component.category} onClick={e => handleUpdate(i)}><GiRollingDices /></i>
                 }
                 </>
             )

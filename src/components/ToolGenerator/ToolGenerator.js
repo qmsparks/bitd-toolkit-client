@@ -114,18 +114,26 @@ const ToolGenerator = props => {
                     {showResults()}
                 </div> :
                     <div className="roll">
-                        <i onClick={e => fetchTool(slug)}><GiRollingDices /></i>
+                        <i className="big-roll" onClick={e => fetchTool(slug)}><GiRollingDices /></i>
                     </div>
                     }
             </div>
                 
+
+
+
+
+
+
+
+
             <section className="save-sticky">
                 {tool &&
                 <div className="card">
                     <div className="card-content">
                         {user ? 
                         <ToolSaveForm details={details} tool={tool} type={type} /> :
-                        <p>Hey, if you log in you can save this {type} for later</p>
+                        <p className="login-nudge">Hey, if you log in you can save this {type} for later</p>
                     }
                     </div>
                 </div>
