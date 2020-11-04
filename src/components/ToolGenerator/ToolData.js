@@ -1,8 +1,10 @@
+import {useState} from 'react';
 import {GiRollingDices} from 'react-icons/gi';
 
 const ToolData = props => {
     const {category, user} = props;
-    let catSlug;
+    const [catSlug, setCatSlug] = useState(category[0].category);
+    // let catSlug;
     
 
     function handleUpdate(catIndex) {
@@ -12,11 +14,11 @@ const ToolData = props => {
     
 
     function isolateComponents() {
-        catSlug = category[0].category;
+        // catSlug = category[0].category;
         return category.map((component, i) => {
             return  (
                 <>
-                <p>{component}</p>
+                <p>{component.name}</p>
                 {user &&
                 <i className="small-reroll" category={component.category} onClick={e => handleUpdate(i)}><GiRollingDices /></i>
                 }

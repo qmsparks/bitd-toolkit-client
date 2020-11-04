@@ -36,7 +36,6 @@ const ToolSaveForm = props => {
 
     function updateFormComponents() {
         const components = tool.map(componentType => {
-            console.log(componentType);
             return componentType.map(component => {
                 return component.name;
             })
