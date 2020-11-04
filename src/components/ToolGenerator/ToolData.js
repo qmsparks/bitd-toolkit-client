@@ -16,7 +16,7 @@ const ToolData = props => {
         return category.map((component, i) => {
             return  (
                 <>
-                <p>{component.name}</p>
+                <p>{component}</p>
                 {user &&
                 <i className="small-reroll" category={component.category} onClick={e => handleUpdate(i)}><GiRollingDices /></i>
                 }
