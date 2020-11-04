@@ -1,5 +1,7 @@
 import {NavLink, useHistory} from 'react-router-dom';
 
+import BackgroundDoodles from '../BackgroundDoodles/BackgroundDoodles';
+
 import useAuth from '../../hooks/useAuth';
 
 import './Sidebar.scss';
@@ -16,6 +18,7 @@ const Sidebar = props => {
     }
 
     return (
+        <>
         <aside className="menu">
             <ul className="menu-list">
                     {user &&
@@ -33,24 +36,29 @@ const Sidebar = props => {
                             Tool Generator
                         </NavLink>
                     </li>
-                    {user && 
+                    {user &&  
+                    <>
                     <li>
                     <NavLink to={'/dashboard'}>
                     Dashboard
                     </NavLink>
-                    </li>}
+                    </li>
                     <li>
-                        <NavLink to={'/about'}>
-                            About
-                        </NavLink>
+                        {/* eslint-disable-next-line */}
+                        <a onClick={logout}>Log Out</a>
                     </li>
-                    {user &&
-                    <li className="btn" onClick={logout}>
-                    Log Out
-                    </li>
+                    </>
                     }
+                    <li>
+                    <NavLink to={'/about'}>
+                        About
+                    </NavLink>
+                    </li>
             </ul>
         </aside>
+
+        <BackgroundDoodles />
+        </>
     )
 }
 

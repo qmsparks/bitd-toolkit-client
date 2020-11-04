@@ -35,26 +35,31 @@ const Tools = props => {
             <div className="tabs is-centered is-boxed">
                 <ul className="tool-menu">
                     <li id="score-tab" onClick={e => setGenerator('Score', 'score')}>
+                        {/* eslint-disable-next-line */}
                         <a>
                         <p>Score</p>
                         </a>
                     </li>
                     <li id="npc-tab" onClick={e => setGenerator('NPC', 'npc')}>
+                        {/* eslint-disable-next-line */}
                         <a>
                         <p>NPC</p>
                         </a>
                     </li>
                     <li id="ghost-tab" onClick={e => setGenerator('Ghost', 'ghost')}>
+                        {/* eslint-disable-next-line */}
                         <a>
                         <p>Ghost</p>
                         </a>
                     </li>
                     <li id="demon-tab" onClick={e=> setGenerator('Demon', 'demon')}> 
+                        {/* eslint-disable-next-line */}
                         <a>
                         <p>Demon</p>
                         </a>
                     </li>
                     <li id="cult-tab" onClick={e => setGenerator('Forgotten God Cult', 'cult')}>
+                        {/* eslint-disable-next-line */}
                         <a>
                         <p>Forgotten God Cult</p>
                         </a>

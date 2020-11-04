@@ -1,0 +1,86 @@
+@import '../../Sass/Partials/fonts';
+@import '../../Sass/Partials/colors';
+
+
+.stickies-container {
+    height: 100vh;
+    display: flex;
+    position: relative;
+    
+    .card.dev-info {
+        position: absolute;
+        left: 120px;
+        transform: rotate(-15deg);
+        background-color: $whale-oil-blue;
+        z-index: 3;
+        // z-index: 1;
+    
+        a {
+            font-size: 3rem;
+        }
+    }
+    
+    .tech-info {
+        position: absolute;
+        left: 200px;
+        bottom: 125px;
+        transform: rotate(7deg);
+        background-color: $purple-post-it;
+        z-index: 1;
+    }
+    
+    .coming-soon {
+        position: absolute;
+        left: 30vw;
+        top: 90px;
+        transform: rotate(3deg);
+        z-index: 2;
+    }
+    
+    .mit-license {
+        position: absolute;
+        left: 40vw;
+        bottom: 65px;
+        background-color: lightpink;
+        transform: rotate(-3deg);
+        z-index: 1;
+    }
+    
+    .bitd-license {
+        position: absolute;
+        right: 285px;
+        bottom: 75px;
+        background-color: $green-post-it;
+        transform: rotate(5deg);
+    }
+}
+
+.card {
+    .card-content {
+        font-size: 1.2rem;
+        margin: auto;
+        overflow: scroll;
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        h3{
+            font-family: $handwrite-title;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: circle;
+            margin-left: 10px;
+        }
+
+        i {
+            font-size: 2rem;
+            position: fixed;
+            right: 10px;
+            bottom: 0;
+        }
+    }
+}
+

@@ -24,7 +24,9 @@ const ToolSaveForm = props => {
             return component.category;
         })
         setComponentTypes(categories);
-    },[]);
+    },
+    // eslint-disable-next-line
+    []);
 
     useEffect(function() {
         updateFormComponents();

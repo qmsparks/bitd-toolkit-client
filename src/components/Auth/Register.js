@@ -1,5 +1,4 @@
 import {useState} from 'react';
-import {useHistory} from 'react-router-dom';
 import AuthModel from '../../models/AuthModel';
 import UserModel from '../../models/UserModel';
 import {useSetRecoilState} from 'recoil';

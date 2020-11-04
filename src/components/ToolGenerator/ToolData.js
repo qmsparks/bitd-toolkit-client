@@ -1,4 +1,4 @@
-import {GiDiceTwentyFacesTwenty} from 'react-icons/gi';
+import {GiRollingDices} from 'react-icons/gi';
 
 const ToolData = props => {
     const {category, user} = props;
@@ -18,7 +18,7 @@ const ToolData = props => {
                 <>
                 <p>{component.name}</p>
                 {user &&
-                <i category={component.category} onClick={e => handleUpdate(i)}><GiDiceTwentyFacesTwenty /></i>
+                <i category={component.category} onClick={e => handleUpdate(i)}><GiRollingDices /></i>
                 }
                 </>
             )

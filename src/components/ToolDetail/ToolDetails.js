@@ -28,7 +28,9 @@ const ToolDetails = props => {
         setComponents(tool.components);
         setType(tool.type);
         setNotes(tool.notes);
-    },[tool]);
+    },
+    // eslint-disable-next-line
+    [tool]);
 
 
     function isolateComponents() {

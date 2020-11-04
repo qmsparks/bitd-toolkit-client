@@ -15,13 +15,13 @@ const Routes = props => {
         <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/tools' component={Tools} />
+            <Route exact path='/about' component={About}/>
             {loggedIn && (
                 <Switch>
                     <Route exact path='/dashboard' component={Dashboard} />
                     <Route path='/tools/:id' component={ToolDetail} />
                 </Switch>
-            )}
-            <Route exact path='/about' component={About}/>
+            )} 
         </Switch>
     )
 }

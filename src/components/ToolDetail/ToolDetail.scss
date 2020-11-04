@@ -19,6 +19,7 @@
         border-radius: 0;
         font-family: $handwriting;
         background-color: whitesmoke;
+        z-index: 1;
     
         .panel-heading, .category-name{
             font-family: $headers;

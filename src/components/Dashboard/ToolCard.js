@@ -17,9 +17,6 @@ const ToolCard = props => {
                     <div className="card-content">
                         <h2>{type}</h2>
                         {notes && <p>{notes[0]}</p>}
-
-                        {/* TODO */}
-                        {/* <p>Note to self: track down some fun simple sketch-style images I can legally grab and randomly slap onto these cards</p> */}
                     </div>
                 </div>
             </Link>

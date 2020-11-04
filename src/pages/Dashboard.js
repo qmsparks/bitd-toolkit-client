@@ -27,42 +27,41 @@ const Dashboard = props => {
 
     return(
         <div className="dashboard">
-            {/* <h1>User Dashboard</h1> */}
             <div className="tabs is-centered is-boxed">
                 <ul className="tool-index-filter">
                     <li className="score-tab" onClick={e => handleFilter('Score', 'score-tab')}>
+                        {/* eslint-disable-next-line */}
                         <a>
                         <p>Scores</p>
                         </a>
                     </li>
                     <li className="npc-tab" onClick={e => handleFilter('NPC', 'npc-tab')}>
+                        {/* eslint-disable-next-line */}
                         <a>
                         <p>NPCs</p>
                         </a>
                     </li>
                     <li className="ghost-tab" onClick={e => handleFilter('Ghost', 'ghost-tab')}>
+                        {/* eslint-disable-next-line */}
                         <a>
                         <p>Ghosts</p>
                         </a>
                     </li>
                     <li className="demon-tab" onClick={e => handleFilter('Demon', 'demon-tab')}> 
+                        {/* eslint-disable-next-line */}
                         <a>
                         <p>Demons</p>
                         </a>
                     </li>
                     <li className="cult-tab" onClick={e=> handleFilter('Forgotten God Cult', 'cult-tab')}>
+                        {/* eslint-disable-next-line */}
                         <a>
                         <p>Forgotten God Cults</p>
                         </a>
                     </li>
                 </ul>
             </div>
-
-            {/* {
-            activeTab ?
-            <ToolIndex data={tools} /> :
-            <h4>Select a category above to view your saved tools</h4>
-            } */}
+            
             <div className="index-container">
             <ToolIndex data={tools} />
             </div>

@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 
-import {GiDiceTwentyFacesTwenty, GiRobberHand, GiGargoyle, GiAllSeeingEye, GiBullyMinion} from 'react-icons/gi';
-import {FaGhost} from 'react-icons/fa';
+import {GiReceiveMoney, GiGargoyle, GiAllSeeingEye, GiBullyMinion, GiRollingDices, GiSpectre} from 'react-icons/gi';
 
 import {useRecoilState} from 'recoil';
 import {userState} from '../../recoil/atoms';
@@ -22,9 +21,9 @@ const ToolGenerator = props => {
     const [nestIndex, setNestIndex] = useState(null);
 
     const doodleMap = {
-        score: <GiRobberHand />,
+        score: <GiReceiveMoney />,
         npc: <GiBullyMinion />,
-        ghost: <FaGhost />,
+        ghost: <GiSpectre />,
         demon: <GiGargoyle />,
         cult: <GiAllSeeingEye />
     }
@@ -81,12 +80,6 @@ const ToolGenerator = props => {
         })
     }
 
-    function toggleForm() {
-        let modal = document.getElementById('tool-save');
-        modal.classList.toggle('is-active');
-    }
-
-
     return (
         <div className="generator-container">
 
@@ -107,10 +100,10 @@ const ToolGenerator = props => {
             { tool &&
             <div className="card reroll-info">
                 <div className="card-content">
-                <i className="active" onClick={e => fetchTool(slug)}><GiDiceTwentyFacesTwenty /></i>
+                <i className="active" onClick={e => fetchTool(slug)}><GiRollingDices /></i>
                 <p>Click for a whole new {type}</p>
 
-                {user && <small>(Or any individual <i><GiDiceTwentyFacesTwenty /></i> to replace just one piece)</small>}
+                {user && <small>(Or any individual <i><GiRollingDices /></i> to replace just one piece)</small>}
                 </div>
             </div>}
 
@@ -121,7 +114,7 @@ const ToolGenerator = props => {
                     {showResults()}
                 </div> :
                     <div className="roll">
-                        <i onClick={e => fetchTool(slug)}><GiDiceTwentyFacesTwenty /></i>
+                        <i onClick={e => fetchTool(slug)}><GiRollingDices /></i>
                     </div>
                     }
             </div>

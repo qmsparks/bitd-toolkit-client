@@ -13,7 +13,7 @@ const ToolEdit = props => {
     const [name, setName] = useState(tool.name);
     const [notes, addNote, updateNote, removeNote] = useNoteInputs(tool.notes);
     const [components, setComponents] = useState([]);
-    const [type, setType] = useState(tool.type);
+    const [type] = useState(tool.type);
     const history = useHistory();
 
     const modal = document.getElementById('tool-edit');
