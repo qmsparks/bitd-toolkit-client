@@ -33,14 +33,20 @@ const Sidebar = props => {
                             Tool Generator
                         </NavLink>
                     </li>
+                    {user && 
                     <li>
                     <NavLink to={'/dashboard'}>
-                        Dashboard
+                    Dashboard
                     </NavLink>
+                    </li>}
+                    <li>
+                        <NavLink to={'/about'}>
+                            About
+                        </NavLink>
                     </li>
                     {user &&
                     <li className="btn" onClick={logout}>
-                        Log Out
+                    Log Out
                     </li>
                     }
             </ul>

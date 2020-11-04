@@ -1,17 +1,6 @@
 @import './Partials/fonts';
 @import './Partials/colors';
 
-
-.modal-card {
-
-    .modal-card-head, .modal-card-foot {
-        background-color: $form-frame;
-        font-family: $headers;
-        font-size: 1.2rem;
-    }
-}
-
-
 form {
     label, .submit-button {
         font-family: $headers;
@@ -35,8 +24,4 @@ form {
             }
         }
     }
-
 }
-
-
-

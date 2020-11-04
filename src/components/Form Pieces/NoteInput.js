@@ -20,10 +20,10 @@ const NoteInput = props => {
     return (
         <div className="field">
             <div className="control note-input">
-                <textarea className="textarea is-medium"
+                <textarea className="textarea"
                 name={`note ${index}`}
                 onChange={e=> handleChange(e)}
-                value={value}
+                value={note}
                 />
                 
                 <i className="delete-note" onClick={e => handleRemove(e)}><CgCloseR /></i>

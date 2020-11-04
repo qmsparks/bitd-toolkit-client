@@ -28,14 +28,13 @@
         .panel-block {
             font-size: 1.2rem;
         }
-    
-        .tool-name {
+
+        .tool-name, .edit-name-field {
             font-family: $handwrite-title;
             font-weight: bold;
-            text-align: center;
         }
 
-        .components {
+        .components, .notes {
             max-height: 40vh;
             overflow: scroll;
         }
@@ -43,15 +42,131 @@
 
 }
 
+.panel-heading {
+    span {
+        display: flex;
+        justify-content: space-between;
+    }
+}
 
 
-.buttons {
+
+.cards {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: 50px;
 
-    .block {
-        &:hover {cursor:pointer;}
+    .card {
+        width: 15vw;
+        height: 30vh;
+    }
+
+    i {
+        font-size: 2rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .edit {
+        position: fixed;
+        right: 75px;
+        bottom: 30px;
+        transform: rotate(13deg);
+        background-color: lightpink;
+        font-size: 1.5rem;
+
+        p {
+            transform: rotate(-17deg);
+        }
+
+        .toggle-doodle {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+
+            transform: rotate(-25deg);
+        }
+
+        i:hover {
+            cursor: pointer;
+        }
+
+        .toggle-doodle:hover {
+            color: $whale-oil-blue;
+        }
+
+        .update-doodle:hover {
+            color: lightgreen;
+        }
+
+        .edit-confirmation {
+            p {
+                position: absolute;
+                bottom: 45px;
+                right: 25px;
+            }
+
+            .update-doodle{
+                position:absolute;
+                bottom: 0;
+                right: 10px;
+            }
+        }
+    }
+
+    .delete-info {
+        position: fixed;
+        top: 15px;
+        left: 75px;
+        z-index: 1;
+        transform: rotate(-15deg);
+        background-color: $purple-post-it;
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        i {
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+
+            &:hover {
+                color: red;
+            }
+        }
+    }
+
+    .delete-confirmation {
+        position: fixed;
+        top: 25px;
+        left: 95px;
+        z-index: 1;
+        transform: rotate(15deg);
+        background-color: darkslategray;
+        color: $whale-oil-blue;
+
+        .confirm {
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+
+            &:hover {
+                color: red;
+            }
+        }
+
+        .back {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+
+            &:hover {
+                color: rgb(100, 245, 100);
+            }
+        }
     }
 }

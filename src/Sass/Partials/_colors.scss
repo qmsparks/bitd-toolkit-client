@@ -1,7 +1,5 @@
-// ANCHOR background images/gradients
-$isometric-grid: url('https://cline-company.com/wp-content/uploads/2019/01/iso-metric-grid-e1547227675543.jpg');
+// ANCHOR background images
 $grid-with-triangle: url('https://wallpaperaccess.com/full/678265.jpg');
-
 
 // ANCHOR colors pulled from game book and Dishonored screenshots
 $whale-oil-blue: rgba(191, 240, 254, 1);
@@ -9,30 +7,17 @@ $cover-orange: #FD7722;
 $cover-mid: #8B8B8B;
 $cover-dark: #202225;
 
-
 $translucent-orange: transparentize($cover-orange, .5);
+$cover-gradient: linear-gradient($cover-dark, $cover-orange);
 
 // ANCHOR colors pulled from office supplies
 $file-folder: #FFF0CC;
 $legal-pad: #F9EF98;
 $legal-pad-vertical: #F89D66;
 $legal-pad-horizontal: #8CC899;
+$purple-post-it: #D8B1EE;
 
 
 
-// ANCHOR gradients
-$cover-gradient: linear-gradient($cover-dark, $cover-orange);
-$gradient-top:rgb(193, 179, 216);
-$gradient-bottom: rgba(0, 0, 0, 0.699);
-$body-gradient: linear-gradient($gradient-top, $gradient-bottom);
-
-
-
-
-$active-page: $file-folder;
-$form-frame: aliceblue;
-$table-frame: $cover-mid;
-
-
-
-
+// ANCHOR miscellaneous
+$confirm: rgb(100, 245, 100);

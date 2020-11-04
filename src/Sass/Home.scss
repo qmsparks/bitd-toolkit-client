@@ -22,6 +22,63 @@
         top: 0;
         left: 0;
         z-index: 1;
+
+        .card-content {
+            margin: auto;
+
+            .button {
+                font-size: .8rem;
+            }
+        }
+
+        .card-footer {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+
+            i {
+                margin-left: 5px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
     }
 
+}
+
+.home-cards {
+    width: 60vw;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.3rem;
+    
+
+    .card-content {
+        margin: auto;
+
+        h3 {
+            font-family: $handwrite-title;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: circle;
+
+            li {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .right {
+        transform: rotate(7deg);
+    }
+
+    .left {
+        transform: rotate(-3deg);
+    }
 }

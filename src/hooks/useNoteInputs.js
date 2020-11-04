@@ -23,7 +23,7 @@ function useNoteInputs(noteList) {
         setNotes(stateNotes);
     }
 
-    return [notes, addNote, updateNote, removeNote];
+    return [notes, addNote, updateNote, removeNote, setNotes];
 
 }
 

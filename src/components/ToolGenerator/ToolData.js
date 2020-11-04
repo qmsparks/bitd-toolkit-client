@@ -17,7 +17,9 @@ const ToolData = props => {
             return  (
                 <>
                 <p>{component.name}</p>
+                {user &&
                 <i category={component.category} onClick={e => handleUpdate(i)}><GiDiceTwentyFacesTwenty /></i>
+                }
                 </>
             )
         })

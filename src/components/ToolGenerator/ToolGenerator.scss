@@ -26,7 +26,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     background-color: $cover-mid;
 }
 
@@ -44,12 +43,11 @@
 .roll {
     i{
         font-size: 10rem;
-        // border: 2px solid black;
         padding-top: 30px;
-        color: $whale-oil-blue;
 
         &:hover {
             cursor: pointer;
+            color: $whale-oil-blue;
         }
     }
 }
@@ -62,17 +60,16 @@
     }
 
     i {
-        color: $whale-oil-blue;
         font-size: 1.1rem;
 
         &:hover {
+            color: $whale-oil-blue;
             cursor: pointer;
         }
     }
 }
 
 .card.tool-details {
-    // background-color: lightblue;
     background-color: $whale-oil-blue;
     transform: rotate(-25deg);
     position: fixed;
@@ -86,7 +83,7 @@
         .doodle {
             position: absolute;
             right: 5px;
-            top: 5px;
+            bottom: 5px;
             transform: rotate(15deg);
         }
     }
@@ -101,12 +98,50 @@
 
     .card-content {
         font-size: 1.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
 
-        i {
-            font-size: 1.7rem;
+        small {
+            font-size: 1.2rem;
+        }
+
+        i.active {
+            font-size: 3rem;
 
             &:hover {
                 color: $whale-oil-blue;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.save-sticky {
+    position: fixed;
+    left: 400px;
+    bottom: -20px;
+    transform: rotate(5deg);
+
+    .card{
+        background-color: $purple-post-it;
+    }
+
+    .save-form {
+        overflow: scroll;
+
+        span {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        .submit{
+            font-size: 2rem;
+
+            &:hover {
+                color: $confirm;
                 cursor: pointer;
             }
         }

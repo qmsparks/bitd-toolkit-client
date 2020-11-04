@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
+import {GiChest} from 'react-icons/gi';
+
 import ToolModel from '../../models/ToolModel';
 import NoteInput from '../Form Pieces/NoteInput';
 import useNoteInputs from '../../hooks/useNoteInputs';
@@ -16,8 +18,6 @@ const ToolSaveForm = props => {
     const [componentTypes, setComponentTypes] = useState([]);
 
     const {details, tool} = props;
-    
-    const modal = document.getElementById('tool-save');
 
     useEffect(function(){
         const categories = details.map(component => {
@@ -42,52 +42,39 @@ const ToolSaveForm = props => {
         setComponents(components);
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
+    function handleSubmit() {
         ToolModel.save({name, type, componentTypes, components, notes}).then(data => {
             history.push('/dashboard');
         })
     }
 
-    function toggleForm() {
-        modal.classList.toggle('is-active');
-    }
-
     return (
-        <div className="modal" id="tool-save">
-            <div className="modal-background"></div>
-            <div className="modal-card">
-                <header className="modal-card-head">
-                    <h3>Save tool</h3>
-                </header>
-                <section className="modal-card-body">
-                    <form onSubmit={handleSubmit}>
-                        <div className="field">
-                            <label htmlFor="name">Save Name</label>
-                            <div className="control">
-                                <input 
-                                type="text"
-                                name="name"
-                                onChange={e => setName(e.target.value)}
-                                value={name}
-                                />
-                            </div>
-                        </div>
-                        <div className="field">
+        <div className="save-form">
+            <span>
+                <h3>Save this {type}</h3>
+                <i className="submit" onClick={handleSubmit}><GiChest /></i>
+            </span>
+            <form>
+                <div className="field">
+                    <label htmlFor="name">Save Name</label>
+                    <div className="control">
+                        <input 
+                        type="text"
+                        name="name"
+                        onChange={e => setName(e.target.value)}
+                        value={name}
+                        />
+                    </div>
+                    </div>
+                    <div className="field">
                         <label htmlFor="notes">Add Notes <i onClick={addNote}><CgAddR /></i></label>
                             <div className="control">
                                 { notes.map((input, i) => {
                                     return <NoteInput key={i} index={i} saveNote={updateNote} removeNote={removeNote} value={input} />
                                     })}
                             </div>
-                        </div>
-                        <input className="submit-button" type="submit" value="Save"/>
+                    </div>
                     </form>
-                </section>
-                <footer className="modal-card-foot">
-                    <button onClick={toggleForm}className="modal-close is-large" aria-label="close"></button>
-                </footer>
-            </div>
         </div>
     )
 }

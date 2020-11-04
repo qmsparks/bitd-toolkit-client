@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-import {GiDiceTwentyFacesTwenty, GiRobberHand, GiGargoyle, GiAllSeeingEye, GiBullyMinion, GiChest} from 'react-icons/gi';
+import {GiDiceTwentyFacesTwenty, GiRobberHand, GiGargoyle, GiAllSeeingEye, GiBullyMinion} from 'react-icons/gi';
 import {FaGhost} from 'react-icons/fa';
 
 import {useRecoilState} from 'recoil';
@@ -107,9 +107,10 @@ const ToolGenerator = props => {
             { tool &&
             <div className="card reroll-info">
                 <div className="card-content">
-                    <p>Click any <i onClick={e => fetchTool(slug)}><GiDiceTwentyFacesTwenty /></i> to get something new!</p>
+                <i className="active" onClick={e => fetchTool(slug)}><GiDiceTwentyFacesTwenty /></i>
+                <p>Click for a whole new {type}</p>
 
-                    <small>(Or on this one to change everything)</small>
+                {user && <small>(Or any individual <i><GiDiceTwentyFacesTwenty /></i> to replace just one piece)</small>}
                 </div>
             </div>}
 
@@ -125,15 +126,17 @@ const ToolGenerator = props => {
                     }
             </div>
                 
-            <section className="foot">
-
-
-                {/* FIXME hahah oops people who aren't logged in can still see the reroll instructions right now
-                can't have that shit! */}
-                {/* TODO Dad's a whole brain genius, why is this save form in a modal, just do another sticky note */}
-                {/* {user && tool &&  <span className="save-target" onClick={e => toggleForm()}>Save Tool</span>} */}
-                {user && tool &&  <i className="save-target" onClick={e => toggleForm()}><GiChest/></i>}
-                {tool && <ToolSaveForm details={details} tool={tool} type={type} />}
+            <section className="save-sticky">
+                {tool &&
+                <div className="card">
+                    <div className="card-content">
+                        {user ? 
+                        <ToolSaveForm details={details} tool={tool} type={type} /> :
+                        <p>Hey, if you log in you can save this {type} for later</p>
+                    }
+                    </div>
+                </div>
+                }
             </section>
         </div>
     )
