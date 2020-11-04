@@ -3,8 +3,7 @@ import {GiRollingDices} from 'react-icons/gi';
 
 const ToolData = props => {
     const {category, user} = props;
-    const [catSlug, setCatSlug] = useState(category[0].category);
-    // let catSlug;
+    const [catSlug] = useState(category[0].category);
     
 
     function handleUpdate(catIndex) {
@@ -14,7 +13,6 @@ const ToolData = props => {
     
 
     function isolateComponents() {
-        // catSlug = category[0].category;
         return category.map((component, i) => {
             return  (
                 <>

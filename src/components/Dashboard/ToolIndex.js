@@ -8,7 +8,13 @@ const ToolIndex = props => {
                 return <ToolCard key={tool._id} tool={tool} />
             })
         } else {
-            return <h4>No tools of this type saved</h4>
+            return (
+                <div className="card no-tools">
+                    <div className="card-content">
+                        <h4>No tools to see here yet</h4>
+                    </div>
+                </div>
+            )
         }
     }
     return (

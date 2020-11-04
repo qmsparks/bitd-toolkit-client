@@ -44,9 +44,18 @@
         transform: rotate(-15deg);
         background-color: $whale-oil-blue;
         z-index: 3;
+
+        small {
+            margin-bottom: 10px;
+        }
     
+        .links {
+            display: flex;
+            justify-content: space-between;
+        }
+        
         a {
-            font-size: 3rem;
+            font-size: 2rem;
         }
     }
     

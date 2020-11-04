@@ -2,10 +2,8 @@ import {useEffect, useState} from 'react';
 
 import {GiReceiveMoney, GiGargoyle, GiAllSeeingEye, GiBullyMinion, GiRollingDices, GiSpectre} from 'react-icons/gi';
 
-import {useRecoilState} from 'recoil';
-import {userState} from '../../recoil/atoms';
-
 import useTools from '../../hooks/useTools';
+import useAuth from '../../hooks/useAuth';
 import useComponents from '../../hooks/useComponents';
 import ToolSaveForm from './ToolSaveForm';
 import ToolData from './ToolData';
@@ -14,7 +12,7 @@ import './ToolGenerator.scss';
 
 const ToolGenerator = props => {
     const {type, slug} = props;
-    const [user] = useRecoilState(userState);
+    const [user] = useAuth();
     const [tool, fetchTool, setTool, details, fetchDetails] = useTools();
     const [component, fetchComponent, setComponent] = useComponents();
     const [mainIndex, setMainIndex] = useState(null);
@@ -118,14 +116,6 @@ const ToolGenerator = props => {
                     </div>
                     }
             </div>
-                
-
-
-
-
-
-
-
 
             <section className="save-sticky">
                 {tool &&

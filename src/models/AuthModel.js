@@ -20,6 +20,17 @@ class AuthModel {
             body: JSON.stringify(data),
         }).then(response => response.json());
     }
+
+    static extendToken() {
+        return fetch(`${URL}/token`, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.uid}`
+            },
+        })
+        .then(response => response.json())
+        .catch(err => console.log('error: ', err));
+    }
 }
 
 export default AuthModel;

@@ -1,4 +1,4 @@
-import {NavLink, useHistory} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 import BackgroundDoodles from '../BackgroundDoodles/BackgroundDoodles';
 
@@ -7,15 +7,7 @@ import useAuth from '../../hooks/useAuth';
 import './Sidebar.scss';
 
 const Sidebar = props => {
-    const history = useHistory();
-    const [user, setUser] = useAuth();
-
-
-    function logout() {
-        setUser(null);
-        localStorage.clear();
-        history.push('/');
-    }
+    const [user, logout] = useAuth();
 
     return (
         <>

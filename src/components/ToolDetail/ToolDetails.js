@@ -134,9 +134,6 @@ const ToolDetails = props => {
 
         </section>
 
-
-
-
         <div className="cards">
 
             <div className="card edit">
@@ -157,14 +154,6 @@ const ToolDetails = props => {
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
             <div className="card delete-info">
                 <div className="card-content">
                     <p>Don't wanna keep this one anymore?</p>
@@ -182,7 +171,6 @@ const ToolDetails = props => {
                 </div>
             </div>
             }
-
         </div>
 
         </>

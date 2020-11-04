@@ -18,7 +18,7 @@ const Login = props => {
         e.preventDefault();
         AuthModel.login({email, password}).then(response => {
             if(response.status === 200) {
-
+                console.log('login response: ', response);
                 localStorage.setItem("uid", response.signedJwt);
                 UserModel.show().then(response => {
                     setUser(response.data);

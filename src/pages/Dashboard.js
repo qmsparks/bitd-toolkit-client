@@ -1,13 +1,19 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import useUserTools from '../hooks/useUserTools';
+import useAuth from '../hooks/useAuth';
 
 import ToolIndex from '../components/Dashboard/ToolIndex';
 
 import '../Sass/Dashboard.scss';
 
 const Dashboard = props => {
+    const [user] = useAuth();
     const [tools, filterUserTools] = useUserTools();
     const [activeTab, setActiveTab] = useState(null);
+
+    useEffect(function() {
+
+    })
 
     function handleFilter(tooltype, clickedTab) {
         if(activeTab) {
@@ -26,6 +32,8 @@ const Dashboard = props => {
     }
 
     return(
+        <>
+        {user && 
         <div className="dashboard">
             <div className="tabs is-centered is-boxed">
                 <ul className="tool-index-filter">
@@ -68,6 +76,8 @@ const Dashboard = props => {
 
 
         </div>
+        }
+        </>
     )
 }
 
