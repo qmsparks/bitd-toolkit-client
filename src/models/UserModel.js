@@ -1,4 +1,4 @@
-const URL = "http://localhost:3001/api/v1/users";
+const URL = "https://bitd-api.herokuapp.com/api/v1/users";
 
 class UserModel {
     static show() {

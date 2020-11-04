@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3001/api/v1/auth';
+const URL = 'https://bitd-api.herokuapp.com/api/v1/auth';
 
 class AuthModel {
     static register = data => {

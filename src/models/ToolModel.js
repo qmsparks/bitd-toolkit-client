@@ -1,4 +1,4 @@
-const URL = "http://localhost:3001/api/v1/tools";
+const URL = "https://bitd-api.herokuapp.com/api/v1/tools";
 
 
 class ToolModel {
