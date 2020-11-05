@@ -111,7 +111,7 @@ const ToolDetails = props => {
 
                 <div className="panel column tool-notes">
                     <p className="panel-heading"><span>Notes {editMode && <i onClick={addNote}><CgAddR /></i>}</span></p> 
-                    <div className="notes">
+                    <div className="panel-block">
                         <form>
                             {
                             editMode ?
@@ -120,7 +120,7 @@ const ToolDetails = props => {
                             })) :
                             (notes && notes.map(note => {
                                 return (
-                                    <div>
+                                    <div className="note">
                                         {note}
                                     </div>
                                 )
