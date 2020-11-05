@@ -5,10 +5,10 @@ const DevCard = props => {
         <div className="card dev-info">
                 <div className="card-content">
                     <h3>The developer</h3>
-                    <p>Quinlan Sparks built this application in a cave from a box of scraps.</p>
-                    <p>They're gonna settle in with another box. The cave is cozy.</p>
+                    <p>Quinlan Sparks built this application in a week and a half in a bizarre fugue state</p>
+                    <p>They're excited to try out lucidity for the next steps.</p>
 
-                    <small>Check out what else is going on in the cave:</small>
+                    <small>Check out what else they're up to:</small>
 
                     <div className="links">
                         <a className="linkedin" href="https://www.linkedin.com/in/quinlansparks/"><FaLinkedin /></a>
