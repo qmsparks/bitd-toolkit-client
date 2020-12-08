@@ -36,6 +36,7 @@ const Header = props => {
 
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
+                    <h3 className="brand-logo navbar-item is-hidden-tablet">BitD Toolkit</h3>
                     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mobile-nav" onClick={toggleNav}>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>

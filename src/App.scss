@@ -5,14 +5,18 @@
 
 
 
-// body {
-//     height: 100vh;
-//     width: 100vw;
-//     background-size: .5cm .5cm;
-//     background-image:
-//         linear-gradient(to right, lightblue 1px, transparent 1px),
-//         linear-gradient(to bottom, lightblue 1px, transparent 1px);
-// }
+body {
+    height: 100vh;
+    width: 100vw;
+    background-size: .5cm .5cm;
+    background-image:
+        linear-gradient(to right, lightblue 1px, transparent 1px),
+        linear-gradient(to bottom, lightblue 1px, transparent 1px);
+}
+
+h3 {
+    font-size: 1.17em;
+}
 
 // body {
 //     min-height: 100vh;

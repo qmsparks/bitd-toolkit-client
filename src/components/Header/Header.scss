@@ -30,7 +30,7 @@
     width: 100vw;
 }
 
-.navbar-menu {
+.navbar-menu, .navbar-item {
     background-color: black;
 }
 
@@ -57,5 +57,9 @@
         position: fixed;
         right: 0;
         text-align: right;
+    }
+
+    .brand-logo {
+        font-family: $handwriting;
     }
 }

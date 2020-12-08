@@ -1,52 +1,18 @@
 @import './Partials/fonts';
 
+.home {
+
+    h3 {
+        font-family: $handwriting;
+    }
+}
+
 // .home {
 //     display: flex;
 //     flex-direction: column;
 //     justify-content: center;
 //     align-items: center;
 //     margin-left: 160px;
-    
-
-//     .splash {
-//         margin: 20px;
-//         z-index: 1;
-//     }
-
-//     h1 {
-//         font-family: $handwrite-title;
-//         font-size: 2rem;
-//     }
-
-//     .auth-stickies {
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         z-index: 1;
-
-//         .card-content {
-//             margin: auto;
-
-//             .button {
-//                 font-size: .8rem;
-//             }
-//         }
-
-//         .card-footer {
-//             position: absolute;
-//             bottom: 5px;
-//             right: 10px;
-
-//             i {
-//                 margin-left: 5px;
-
-//                 &:hover {
-//                     cursor: pointer;
-//                 }
-//             }
-//         }
-//     }
-
 // }
 
 // .home-cards {
