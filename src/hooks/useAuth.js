@@ -15,7 +15,6 @@ function useAuth() {
     useEffect(function(){
         if(localStorage.getItem('uid')) {
             UserModel.show().then(response => {
-                console.log('user info response: ', response);
                 if (response.status === 500) {
                     logout();
                 } else {

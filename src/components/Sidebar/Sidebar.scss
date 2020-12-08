@@ -1,21 +1,25 @@
 @import '../../Sass/Partials/colors';
 
-aside.menu {
-    background-image: $cover-gradient;
-    min-height: 100vh;
-    width: 160px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    float: left;
-    position: fixed;
-    z-index: 1;
 
-    li, a{
-        color: $whale-oil-blue;
-        text-align: center;
-    }
+
+
+
+// aside.menu {
+//     background-image: $cover-gradient;
+//     min-height: 100vh;
+//     width: 160px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     float: left;
+//     position: fixed;
+//     z-index: 1;
+
+//     li, a{
+//         color: $whale-oil-blue;
+//         text-align: center;
+//     }
 
     
 
-}
+// }

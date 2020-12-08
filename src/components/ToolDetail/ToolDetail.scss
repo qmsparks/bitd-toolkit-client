@@ -2,162 +2,162 @@
 @import '../../Sass/Partials/colors';
 
 
-.tool-show-container {
-    padding-top: 50px;
-    display: flex;
-    justify-content: center;
+// .tool-show-container {
+//     padding-top: 50px;
+//     display: flex;
+//     justify-content: center;
 
-    .columns {
-        width: 60vw;
-        .column {
-            margin: 30px;
-        }
-    }
+//     .columns {
+//         width: 60vw;
+//         .column {
+//             margin: 30px;
+//         }
+//     }
 
-    .panel {
-        border: 1px solid black;
-        border-radius: 0;
-        font-family: $handwriting;
-        background-color: whitesmoke;
-        z-index: 1;
+//     .panel {
+//         border: 1px solid black;
+//         border-radius: 0;
+//         font-family: $handwriting;
+//         background-color: whitesmoke;
+//         z-index: 1;
     
-        .panel-heading, .category-name{
-            font-family: $headers;
-            font-weight: bold;
-        }
+//         .panel-heading, .category-name{
+//             font-family: $headers;
+//             font-weight: bold;
+//         }
     
-        .panel-block {
-            font-size: 1.2rem;
-        }
+//         .panel-block {
+//             font-size: 1.2rem;
+//         }
 
-        .tool-name, .edit-name-field {
-            font-family: $handwrite-title;
-            font-weight: bold;
-        }
+//         .tool-name, .edit-name-field {
+//             font-family: $handwrite-title;
+//             font-weight: bold;
+//         }
 
-        .components, .notes {
-            max-height: 40vh;
-            overflow: scroll;
-        }
-    }
+//         .components, .notes {
+//             max-height: 40vh;
+//             overflow: scroll;
+//         }
+//     }
 
-}
+// }
 
-.panel-heading {
-    span {
-        display: flex;
-        justify-content: space-between;
-    }
-}
+// .panel-heading {
+//     span {
+//         display: flex;
+//         justify-content: space-between;
+//     }
+// }
 
 
 
-.cards {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 50px;
+// .cards {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     margin-top: 50px;
 
-    .card {
-        width: 15vw;
-        height: 30vh;
-    }
+//     .card {
+//         width: 15vw;
+//         height: 30vh;
+//     }
 
-    i {
-        font-size: 2rem;
+//     i {
+//         font-size: 2rem;
 
-        &:hover {
-            cursor: pointer;
-        }
-    }
+//         &:hover {
+//             cursor: pointer;
+//         }
+//     }
 
-    .edit {
-        position: fixed;
-        right: 75px;
-        bottom: 30px;
-        transform: rotate(13deg);
-        background-color: lightpink;
-        font-size: 1.5rem;
+//     .edit {
+//         position: fixed;
+//         right: 75px;
+//         bottom: 30px;
+//         transform: rotate(13deg);
+//         background-color: lightpink;
+//         font-size: 1.5rem;
 
-        p {
-            transform: rotate(-17deg);
-        }
+//         p {
+//             transform: rotate(-17deg);
+//         }
 
-        .toggle-doodle {
-            position: absolute;
-            top: 25px;
-            left: 25px;
+//         .toggle-doodle {
+//             position: absolute;
+//             top: 25px;
+//             left: 25px;
 
-            transform: rotate(-25deg);
-        }
+//             transform: rotate(-25deg);
+//         }
 
-        i:hover {
-            cursor: pointer;
-        }
+//         i:hover {
+//             cursor: pointer;
+//         }
 
-        .toggle-doodle:hover {
-            color: $whale-oil-blue;
-        }
+//         .toggle-doodle:hover {
+//             color: $whale-oil-blue;
+//         }
 
-        .update-doodle:hover {
-            color: lightgreen;
-        }
+//         .update-doodle:hover {
+//             color: lightgreen;
+//         }
 
-        .edit-confirmation {
-            p {
-                position: absolute;
-                bottom: 45px;
-                right: 25px;
-            }
+//         .edit-confirmation {
+//             p {
+//                 position: absolute;
+//                 bottom: 45px;
+//                 right: 25px;
+//             }
 
-            .update-doodle{
-                position:absolute;
-                bottom: 0;
-                right: 10px;
-            }
-        }
-    }
+//             .update-doodle{
+//                 position:absolute;
+//                 bottom: 0;
+//                 right: 10px;
+//             }
+//         }
+//     }
 
-    .delete-info {
-        position: fixed;
-        top: 15px;
-        left: 75px;
-        z-index: 1;
-        transform: rotate(-15deg);
-        background-color: $purple-post-it;
+//     .delete-info {
+//         position: fixed;
+//         top: 15px;
+//         left: 75px;
+//         z-index: 1;
+//         transform: rotate(-15deg);
+//         background-color: $purple-post-it;
 
-        p {
-            margin-bottom: 15px;
-        }
-    }
+//         p {
+//             margin-bottom: 15px;
+//         }
+//     }
 
-    .delete-knife {
-        position: absolute;
-        bottom: 0;
-        right: 20px;
+//     .delete-knife {
+//         position: absolute;
+//         bottom: 0;
+//         right: 20px;
 
-        &:hover {
-            color: red;
-        }
-    }
+//         &:hover {
+//             color: red;
+//         }
+//     }
 
-    .delete-confirmation {
-        position: fixed;
-        top: 25px;
-        left: 95px;
-        z-index: 1;
-        transform: rotate(15deg);
-        background-color: darkslategray;
-        color: $whale-oil-blue;
+//     .delete-confirmation {
+//         position: fixed;
+//         top: 25px;
+//         left: 95px;
+//         z-index: 1;
+//         transform: rotate(15deg);
+//         background-color: darkslategray;
+//         color: $whale-oil-blue;
 
-        .back {
-            position: absolute;
-            top: 10px;
-            left: 5px;
+//         .back {
+//             position: absolute;
+//             top: 10px;
+//             left: 5px;
 
-            &:hover {
-                color: $confirm;
-            }
-        }
-    }
-}
+//             &:hover {
+//                 color: $confirm;
+//             }
+//         }
+//     }
+// }

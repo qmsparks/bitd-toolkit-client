@@ -1,39 +1,39 @@
 @import '../Sass/Partials/colors';
 
-.tool-page {
-    margin-left: 160px;
+// .tool-page {
+//     margin-left: 160px;
 
-    .tool-menu {
-        li {
-            text-align: center;
-        }
-    }
+//     .tool-menu {
+//         li {
+//             text-align: center;
+//         }
+//     }
     
-    .tool-page {
-        min-height: 100vh;
-        position: relative;
-        margin-left: 160px;
-    }
+//     .tool-page {
+//         min-height: 100vh;
+//         position: relative;
+//         margin-left: 160px;
+//     }
     
-    .generator-info {
-        display: flex;
-        justify-content: flex-end;
+//     .generator-info {
+//         display: flex;
+//         justify-content: flex-end;
     
-        .card {
-            transform: rotate(-15deg);
+//         .card {
+//             transform: rotate(-15deg);
     
-            .card-content{
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-        }
-    }
+//             .card-content{
+//                 margin: 0;
+//                 display: flex;
+//                 flex-direction: column;
+//                 justify-content: space-between;
+//             }
+//         }
+//     }
     
     
-    .doodle {
-        font-size: 2rem;
-    }
+//     .doodle {
+//         font-size: 2rem;
+//     }
 
-}
+// }

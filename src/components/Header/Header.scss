@@ -1,0 +1,26 @@
+@import '../../Sass/Partials/colors';
+@import '../../Sass/Partials/fonts';
+
+.header {
+    color: $title-gray;
+    background-color: black;
+    font-family: $sans-serif;
+
+    h1 {
+        font-family: $handwriting;
+    }
+
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+        display: flex;
+
+        li {
+            padding: 15px;
+        }
+    }
+}

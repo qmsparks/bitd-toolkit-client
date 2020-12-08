@@ -29,7 +29,7 @@ const Register = props => {
     }
 
     return(
-        <div>
+        <div className="auth-sticky" id="register">
             <h2>Sign Up</h2>
             {error && <p style={{color: "red"}}>{error}</p> }
             <form onSubmit={handleSubmit}>

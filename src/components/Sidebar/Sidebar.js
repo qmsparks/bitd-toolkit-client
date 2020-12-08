@@ -48,6 +48,7 @@ const Sidebar = props => {
                     </li>
             </ul>
         </aside>
+        <img className="splash" src="https://www.evilhat.com/home/wp-content/uploads/2016/09/EHP_Blades_Marquee.jpg" alt=""/>
 
         <BackgroundDoodles />
         </>

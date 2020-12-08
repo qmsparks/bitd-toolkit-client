@@ -1,27 +1,27 @@
 @import './Partials/fonts';
 @import './Partials/colors';
 
-form {
-    label, .submit-button {
-        font-family: $headers;
-    }
+// form {
+//     label, .submit-button {
+//         font-family: $headers;
+//     }
 
-    input, textarea {
-        font-family: $handwriting;
-        font-size: 1.2rem;
-    }
+//     input, textarea {
+//         font-family: $handwriting;
+//         font-size: 1.2rem;
+//     }
 
-    .note-input {
-        position: relative;
+//     .note-input {
+//         position: relative;
     
-        .delete-note {
-            position: absolute;
-            right: 7px;
-            top: 4px;
+//         .delete-note {
+//             position: absolute;
+//             right: 7px;
+//             top: 4px;
     
-            &:hover {
-                cursor: pointer;
-            }
-        }
-    }
-}
+//             &:hover {
+//                 cursor: pointer;
+//             }
+//         }
+//     }
+// }

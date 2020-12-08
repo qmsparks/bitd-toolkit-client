@@ -31,7 +31,7 @@ const Login = props => {
     }
 
     return(
-        <div>
+        <div className="auth-sticky" id="login">
                 <h2>Log In</h2>
                 {error && <p style={{color: "red"}}>{error}</p>}
                 <form onSubmit={handleSubmit}>

@@ -6,31 +6,40 @@
 
 
 body {
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    font-family: $headers;
+    height: 100vh;
+    max-width: 100vw;
+    background-size: .5cm .5cm;
+    background-image:
+        linear-gradient(to right, lightblue 1px, transparent 1px),
+        linear-gradient(to bottom, lightblue 1px, transparent 1px);
 }
 
-.tabs {
-    background-color: $cover-dark;
+// body {
+//     min-height: 100vh;
+//     background-size: cover;
+//     background-position: center;
+//     font-family: $headers;
+// }
 
-}
+// .tabs {
+//     background-color: $cover-dark;
+
+// }
 
 
-.card {
-    width: 20vw;
-    height: 40vh;
-    font-family: $handwriting;
-    font-size:1.1rem;
+// .card {
+//     width: 20vw;
+//     height: 40vh;
+//     font-family: $handwriting;
+//     font-size:1.1rem;
     
-    .card-content {
-        height: inherit;
-        padding-left: 45px;
-        display: flex;
-        flex-direction: column;
-        overflow: scroll;
+//     .card-content {
+//         height: inherit;
+//         padding-left: 45px;
+//         display: flex;
+//         flex-direction: column;
+//         overflow: scroll;
 
         
-    }
-}
+//     }
+// }
