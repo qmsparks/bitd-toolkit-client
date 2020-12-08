@@ -22,61 +22,60 @@ const Header = props => {
         setRegisterSticky(!registerSticky);
     }
 
+    function toggleNav() {
+        const navBurger = document.querySelector('.navbar-burger');
+        const target = document.getElementById('mobile-nav');
+
+        navBurger.classList.toggle('is-active');
+        target.classList.toggle('is-active');
+    }
+
     return (
         <>
         <header className="header">
-            <img className="splash" src="https://www.evilhat.com/home/wp-content/uploads/2016/09/EHP_Blades_Marquee.jpg" alt=""/>
-            <h1>
-                (Unofficial) Game Master's Toolkit
-            </h1>
-            <div className="menu">
-                <ul className="nav">
-                    <li>
-                        <NavLink to='/'>
+
+            <nav className="navbar" role="navigation" aria-label="main navigation">
+                <div className="navbar-brand">
+                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mobile-nav" onClick={toggleNav}>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div id="mobile-nav" className="navbar-menu">
+                    <div className="navbar-start">
+                        <NavLink to='/' className="navbar-item">
                             Home
                         </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={'/tools'}>
+                        <NavLink to={'/tools'} className="navbar-item">
                             Tool Generator
                         </NavLink>
-                    </li>
-                    {user &&  
-                    <>
-                    <li>
-                    <NavLink to={'/dashboard'}>
-                    Dashboard
-                    </NavLink>
-                    </li>
-                    </>
-                    }
-                    <li>
-                    <NavLink to={'/about'}>
-                        About
-                    </NavLink>
-                    </li>
-                </ul>
-                <ul className="auth">
-                    {user ? 
-                    <li>
-                        <a onClick={logout}>
-                            Logout
-                        </a>
-                    </li>:
-                    <>
-                    <li>
-                        <a onClick={toggleLogin}>
-                            Log In
-                        </a>
-                    </li>
-                    <li>
-                        <a onClick={toggleRegister}>
-                            Sign Up
-                        </a>
-                    </li>
-                    </>}
-                </ul>
-            </div>
+                        {user && 
+                        <NavLink to={'/dashboard'} className="navbar-item">
+                            Dashboard
+                        </NavLink>
+                        }
+                        <NavLink to={'/about'} className="navbar-item">
+                            About
+                        </NavLink>
+                    </div>
+                    <div className="navbar-end">
+                        {user ?
+                        <a onClick={logout} className="navbar-item">Logout</a> :
+                        <>
+                        <a onClick={toggleLogin} className="navbar-item">Log In</a>
+                        <a onClick={toggleRegister} className="navbar-item">Sign Up</a>
+                        </>
+                        }
+                    </div>
+                </div>
+            </nav>
+
+            <img className="splash" src="https://www.evilhat.com/home/wp-content/uploads/2016/09/EHP_Blades_Marquee.jpg" alt=""/>
+            <h1 id="logo">
+                (Unofficial) Game Master's Toolkit
+            </h1>
+            
         </header>
         
         {loginSticky && <Login />}

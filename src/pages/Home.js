@@ -1,15 +1,4 @@
-import {useState} from 'react';
-import useAuth from '../hooks/useAuth';
-
-// import '../Sass/Home.scss';
-
 const Home = () => {
-    const [user] = useAuth();
-    const [loginActive, setLoginActive] = useState(true);
-
-    function toggleForms() {
-        setLoginActive(!loginActive);
-    }
 
     return (
         <div className="home">

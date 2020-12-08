@@ -1,18 +1,18 @@
 @charset "utf-8";
 @import './Sass/Partials/overrides';
 @import "../node_modules/bulma/bulma.sass";
-@import './Sass/Forms.scss';
+// @import './Sass/Forms.scss';
 
 
 
-body {
-    height: 100vh;
-    max-width: 100vw;
-    background-size: .5cm .5cm;
-    background-image:
-        linear-gradient(to right, lightblue 1px, transparent 1px),
-        linear-gradient(to bottom, lightblue 1px, transparent 1px);
-}
+// body {
+//     height: 100vh;
+//     width: 100vw;
+//     background-size: .5cm .5cm;
+//     background-image:
+//         linear-gradient(to right, lightblue 1px, transparent 1px),
+//         linear-gradient(to bottom, lightblue 1px, transparent 1px);
+// }
 
 // body {
 //     min-height: 100vh;

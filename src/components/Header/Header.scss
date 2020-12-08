@@ -5,22 +5,57 @@
     color: $title-gray;
     background-color: black;
     font-family: $sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     h1 {
         font-family: $handwriting;
+        text-align: center;
+        font-size: 1.5rem;
+        padding-bottom: 10px;
+    }
+
+    a { 
+        color: $whale-oil-blue;
+        &:hover {
+            color: $title-gray;
+        }
     }
 
 }
 
-.menu {
-    display: flex;
-    justify-content: space-between;
+.navbar {
+    width: 100vw;
+}
 
-    ul {
-        display: flex;
+.navbar-menu {
+    background-color: black;
+}
 
-        li {
-            padding: 15px;
-        }
+.splash {
+    max-height: 20vh;
+}
+
+
+
+@media screen and (max-width: 767px) {
+    .splash {
+        display: none;
+    }
+    #logo {
+        display: none;
+    }
+
+    .navbar-brand {
+        background-color: black;
+    }
+
+    .navbar-menu.is-active {
+        background-color: black;
+        position: fixed;
+        right: 0;
+        text-align: right;
     }
 }
