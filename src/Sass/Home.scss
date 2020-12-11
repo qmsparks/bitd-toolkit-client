@@ -4,8 +4,20 @@
 
     h3 {
         font-family: $handwriting;
+        text-align: center;
+    }
+
+    // .columns {
+    //     display: flex;
+    //     justify-content: space-evenly;
+    // }
+
+    ul {
+        list-style-type: disc;
     }
 }
+
+
 
 // .home {
 //     display: flex;

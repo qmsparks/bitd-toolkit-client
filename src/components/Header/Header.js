@@ -82,7 +82,7 @@ const Header = props => {
         {loginSticky && <Login />}
         {registerSticky && <Register />}
 
-        <BackgroundDoodles />
+        {/* <BackgroundDoodles /> */}
         </>
     )
 }

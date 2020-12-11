@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div className="home">
             <div className="home-notes columns">
-                <div className="column">
+                <div className="column is-3">
                     <h3>What This Is:</h3>
                     <ul>
                         <li>A convenient place to randomize and keep track of some basic set pieces for your games</li>
@@ -13,8 +13,8 @@ const Home = () => {
                         <li>Still growing</li>
                     </ul>
                 </div>
-                <div className="column">
-                <h3>What this is not</h3>
+                <div className="column is-3">
+                <h3>What This Is Not:</h3>
                     <ul>
                         <li>A way to learn how to play Blades in the Dark without buying the book</li>
                         <li>Seriously, I'm not doing it, <a href="http://bladesinthedark.com/">go buy it</a></li>

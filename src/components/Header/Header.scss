@@ -30,14 +30,17 @@
     width: 100vw;
 }
 
-.navbar-menu, .navbar-item {
+.navbar-menu, .navbar-item, .navbar-brand {
     background-color: black;
+}
+
+.brand-logo {
+    font-family: $handwriting;
 }
 
 .splash {
     max-height: 20vh;
 }
-
 
 
 @media screen and (max-width: 767px) {
@@ -48,18 +51,10 @@
         display: none;
     }
 
-    .navbar-brand {
-        background-color: black;
-    }
-
     .navbar-menu.is-active {
         background-color: black;
         position: fixed;
         right: 0;
         text-align: right;
-    }
-
-    .brand-logo {
-        font-family: $handwriting;
     }
 }
